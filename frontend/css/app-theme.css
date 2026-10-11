@@ -1,0 +1,752 @@
+/* =========================================================
+   ADAPTIVELEARN — SHARED DESIGN SYSTEM
+   ========================================================= */
+
+:root {
+    --al-bg: #f5f6fb;
+    --al-card: #ffffff;
+
+    --al-navy: #111827;
+    --al-navy-soft: #1f2937;
+
+    --al-purple: #6366f1;
+    --al-purple-dark: #4f46e5;
+    --al-purple-light: #eef0ff;
+    --al-purple-soft: #f4f3ff;
+
+    --al-text: #182033;
+    --al-text-soft: #596276;
+    --al-muted: #8b93a5;
+
+    --al-border: #e7e9f1;
+
+    --al-green: #2eaa70;
+    --al-green-soft: #eaf8f1;
+
+    --al-yellow: #d49a38;
+    --al-yellow-soft: #fff6e5;
+
+    --al-red: #dc626b;
+    --al-red-soft: #fff0f1;
+
+    --al-shadow:
+        0 8px 25px rgba(31, 41, 55, 0.06);
+
+    --al-shadow-hover:
+        0 16px 35px rgba(31, 41, 55, 0.11);
+}
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--al-bg) !important;
+    color: var(--al-text) !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+}
+
+a {
+    transition: all 0.2s ease;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    background: var(--al-navy) !important;
+    border-right: none !important;
+    color: white;
+    box-shadow: 8px 0 30px rgba(17, 24, 39, 0.08);
+}
+
+.sidebar-logo,
+.logo {
+    color: #ffffff !important;
+    letter-spacing: -0.5px;
+}
+
+.sidebar-logo span,
+.logo span {
+    color: #818cf8 !important;
+}
+
+.menu-title {
+    color: #7f899d !important;
+}
+
+.menu-item {
+    color: #cbd5e1 !important;
+    border-radius: 12px !important;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease !important;
+}
+
+.menu-item:hover {
+    background: var(--al-navy-soft) !important;
+    color: #ffffff !important;
+    transform: translateX(3px);
+}
+
+.menu-item.active {
+    background: linear-gradient(
+        135deg,
+        var(--al-purple-dark),
+        var(--al-purple)
+    ) !important;
+
+    color: white !important;
+
+    box-shadow:
+        0 8px 20px rgba(99, 102, 241, 0.28) !important;
+}
+
+.menu-icon {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+    background: var(--al-bg);
+}
+
+
+/* =========================================================
+   HEADERS
+   ========================================================= */
+
+.topbar,
+.top-header {
+    margin-bottom: 25px;
+}
+
+.page-label,
+.welcome-label,
+.intro-label,
+.section-heading p {
+    color: var(--al-purple) !important;
+    font-weight: 800 !important;
+    letter-spacing: 1.4px !important;
+}
+
+.topbar h1,
+.top-header h1 {
+    color: var(--al-text) !important;
+    font-weight: 750;
+    letter-spacing: -0.6px;
+}
+
+.subtitle,
+.top-header .subtitle {
+    color: var(--al-text-soft) !important;
+}
+
+
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
+.profile-avatar {
+    background: var(--al-purple-light) !important;
+    color: var(--al-purple) !important;
+}
+
+.profile strong {
+    color: var(--al-text) !important;
+}
+
+.profile small {
+    color: var(--al-muted) !important;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.back-link {
+    color: #697386 !important;
+    font-weight: 600;
+}
+
+.back-link:hover {
+    color: var(--al-purple) !important;
+    transform: translateX(-2px);
+}
+
+
+/* =========================================================
+   COMMON CARDS
+   ========================================================= */
+
+.card,
+.stat-card,
+.subject-card,
+.topic-card,
+.exam-card,
+.information-card,
+.instructions,
+.intro,
+.content-card {
+    background: var(--al-card) !important;
+    border: 1px solid var(--al-border) !important;
+    box-shadow: var(--al-shadow);
+}
+
+.card:hover,
+.stat-card:hover,
+.subject-card:hover,
+.topic-card:hover,
+.exam-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--al-shadow-hover);
+}
+
+
+/* =========================================================
+   STAT CARDS
+   ========================================================= */
+
+.stat-card {
+    border-radius: 18px !important;
+    padding: 22px !important;
+    transition: all 0.25s ease;
+}
+
+.stat-card:hover {
+    border-color: #dcdfff !important;
+}
+
+.stat-name {
+    color: var(--al-text-soft) !important;
+    font-weight: 650 !important;
+}
+
+.stat-value {
+    color: var(--al-text) !important;
+    font-weight: 800 !important;
+}
+
+.stat-change {
+    color: var(--al-green) !important;
+}
+
+.stat-icon {
+    border-radius: 12px !important;
+    background: var(--al-purple-light) !important;
+}
+
+
+/* =========================================================
+   INTRO / HERO CARDS
+   ========================================================= */
+
+.intro {
+    border-radius: 20px !important;
+    padding: 30px !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.intro::after {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    right: -70px;
+    top: -70px;
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.07);
+    pointer-events: none;
+}
+
+.intro h2 {
+    color: var(--al-text) !important;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.progress-bar {
+    height: 8px !important;
+    background: #e9ebf2 !important;
+    border-radius: 20px !important;
+}
+
+.progress-fill {
+    background:
+        linear-gradient(
+            90deg,
+            var(--al-purple-dark),
+            #818cf8
+        ) !important;
+
+    border-radius: 20px !important;
+}
+
+
+/* =========================================================
+   SUBJECT CARDS
+   ========================================================= */
+
+.subject-card {
+    border-radius: 18px !important;
+    padding: 24px !important;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.subject-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 0;
+    background: var(--al-purple);
+    transition: height 0.25s ease;
+}
+
+.subject-card:hover::before {
+    height: 100%;
+}
+
+.subject-icon {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 14px !important;
+    background: var(--al-purple-light) !important;
+    color: var(--al-purple) !important;
+    font-size: 19px !important;
+}
+
+.subject-card h3 {
+    color: var(--al-text) !important;
+    font-size: 18px !important;
+    font-weight: 750 !important;
+}
+
+.subject-card > p {
+    color: var(--al-text-soft) !important;
+}
+
+
+/* =========================================================
+   MASTERY BADGES
+   ========================================================= */
+
+.mastery {
+    border-radius: 20px !important;
+    padding: 7px 10px !important;
+}
+
+.mastery.good {
+    background: var(--al-green-soft) !important;
+    color: var(--al-green) !important;
+}
+
+.mastery.medium {
+    background: var(--al-yellow-soft) !important;
+    color: var(--al-yellow) !important;
+}
+
+.mastery.new {
+    background: #f0f1f5 !important;
+    color: #737b8d !important;
+}
+
+
+/* =========================================================
+   TOPIC CARDS
+   ========================================================= */
+
+.topic-card {
+    border-radius: 18px !important;
+    padding: 22px !important;
+    min-height: 180px;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.topic-card::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: -45px;
+    bottom: -45px;
+    border-radius: 50%;
+    background: var(--al-purple-soft);
+    pointer-events: none;
+}
+
+.topic-number {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--al-purple-light);
+    color: var(--al-purple);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    flex-shrink: 0;
+}
+
+.topic-main,
+.topic-content {
+    position: relative;
+    z-index: 2;
+}
+
+.topic-heading h3,
+.topic-content h3 {
+    color: var(--al-text) !important;
+    font-size: 17px !important;
+    font-weight: 750 !important;
+}
+
+.topic-main > p,
+.topic-content p {
+    color: var(--al-text-soft) !important;
+}
+
+.topic-footer {
+    border-top-color: var(--al-border) !important;
+}
+
+.topic-footer a,
+.topic-action a {
+    color: var(--al-purple) !important;
+    font-weight: 800 !important;
+}
+
+
+/* =========================================================
+   PRACTICE BUTTON
+   ========================================================= */
+
+.topic-action a,
+.subject-footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 9px 14px;
+
+    border-radius: 9px;
+
+    background: var(--al-purple-light);
+
+    color: var(--al-purple) !important;
+
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+}
+
+.topic-action a:hover,
+.subject-footer a:hover {
+    background: var(--al-purple);
+    color: white !important;
+    transform: translateX(2px);
+}
+
+
+/* =========================================================
+   EXAM CARDS
+   ========================================================= */
+
+.exam-card {
+    border-radius: 20px !important;
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+.exam-card:hover {
+    border-color: #d9dbff !important;
+}
+
+.exam-icon {
+    background:
+        linear-gradient(
+            135deg,
+            var(--al-purple-dark),
+            #818cf8
+        ) !important;
+
+    color: white !important;
+    border-radius: 15px !important;
+}
+
+.exam-card h3 {
+    color: var(--al-text) !important;
+    font-weight: 800 !important;
+}
+
+.exam-card p {
+    color: var(--al-text-soft) !important;
+}
+
+.exam-button,
+.select-exam-button {
+    background:
+        linear-gradient(
+            135deg,
+            var(--al-purple-dark),
+            var(--al-purple)
+        ) !important;
+
+    color: white !important;
+
+    border-radius: 11px !important;
+
+    border: none !important;
+
+    box-shadow:
+        0 7px 18px rgba(99, 102, 241, 0.20);
+}
+
+.exam-button:hover,
+.select-exam-button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 11px 24px rgba(99, 102, 241, 0.28);
+}
+
+
+/* =========================================================
+   RECOMMENDATION
+   ========================================================= */
+
+.recommendation {
+    background:
+        linear-gradient(
+            135deg,
+            #5658df,
+            #7477f4
+        ) !important;
+
+    border-radius: 20px !important;
+
+    box-shadow:
+        0 15px 35px rgba(86, 88, 223, 0.22);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.recommendation::after {
+    content: "";
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    right: -80px;
+    top: -110px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+}
+
+.recommendation-icon {
+    background: rgba(255,255,255,0.16) !important;
+    border-radius: 13px !important;
+}
+
+.recommendation-button {
+    border-radius: 10px !important;
+    box-shadow: 0 7px 18px rgba(20,20,60,0.12);
+}
+
+.recommendation-button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.section-heading h2 {
+    color: var(--al-text) !important;
+    font-weight: 800 !important;
+}
+
+.topic-count {
+    background: white !important;
+    border: 1px solid var(--al-border) !important;
+    border-radius: 10px !important;
+    color: var(--al-purple) !important;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status.good {
+    background: var(--al-green-soft) !important;
+    color: var(--al-green) !important;
+}
+
+.status.medium {
+    background: var(--al-yellow-soft) !important;
+    color: var(--al-yellow) !important;
+}
+
+.status.weak {
+    background: var(--al-red-soft) !important;
+    color: var(--al-red) !important;
+}
+
+
+/* =========================================================
+   SIDEBAR PROMO
+   ========================================================= */
+
+.sidebar-promo {
+    background:
+        linear-gradient(
+            145deg,
+            #4338ca,
+            #6366f1
+        ) !important;
+
+    border-radius: 18px !important;
+
+    box-shadow:
+        0 14px 30px rgba(79,70,229,0.20);
+}
+
+
+/* =========================================================
+   LOADING / ERROR
+   ========================================================= */
+
+.loading-message {
+    background: white;
+    border: 1px solid var(--al-border);
+    border-radius: 16px;
+    padding: 35px;
+    text-align: center;
+    color: var(--al-text-soft);
+    box-shadow: var(--al-shadow);
+}
+
+
+/* =========================================================
+   FORM ELEMENTS
+   ========================================================= */
+
+input,
+select,
+textarea {
+    border: 1px solid #dfe2eb !important;
+    border-radius: 11px !important;
+    transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--al-purple) !important;
+    box-shadow:
+        0 0 0 4px rgba(99,102,241,0.10) !important;
+    outline: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .sidebar {
+        width: 75px !important;
+    }
+
+    .main-content {
+        margin-left: 75px !important;
+        width: calc(100% - 75px);
+    }
+
+    .sidebar-logo {
+        font-size: 0 !important;
+        text-align: center;
+    }
+
+    .sidebar-logo::before {
+        content: "A";
+        font-size: 25px;
+        color: #818cf8;
+    }
+
+    .menu-title,
+    .menu-item span:last-child,
+    .sidebar-promo {
+        display: none !important;
+    }
+
+    .menu-item {
+        justify-content: center;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .main-content {
+        padding: 18px !important;
+    }
+
+    .topbar,
+    .top-header {
+        align-items: flex-start;
+    }
+
+    .topbar h1,
+    .top-header h1 {
+        font-size: 24px !important;
+    }
+
+    .profile-info {
+        display: none;
+    }
+
+    .recommendation {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .recommendation-button {
+        width: 100%;
+        text-align: center;
+    }
+}

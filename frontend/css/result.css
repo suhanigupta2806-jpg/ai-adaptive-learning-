@@ -1,0 +1,794 @@
+/* =========================================
+   RESULT PAGE
+   AdaptiveLearn
+========================================= */
+
+
+/* =========================================
+   GENERAL PAGE
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.result-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.result-header {
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    color: white;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(79, 70, 229, 0.18);
+}
+
+.result-header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.result-header p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   QUIZ INFORMATION
+========================================= */
+
+.quiz-info {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin-top: 22px;
+}
+
+.quiz-info span {
+    background: rgba(255, 255, 255, 0.15);
+
+    padding: 9px 15px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+}
+
+.quiz-info strong {
+    color: white;
+}
+
+
+/* =========================================
+   SCORE CARD
+========================================= */
+
+.score-card {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.07);
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   SCORE CIRCLE
+========================================= */
+
+.score-circle {
+    width: 150px;
+
+    height: 150px;
+
+    border-radius: 50%;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #eef2ff;
+
+    border: 8px solid #4f46e5;
+}
+
+.score-circle .score {
+    font-size: 38px;
+
+    font-weight: bold;
+
+    color: #4f46e5;
+}
+
+.score-circle .score-label {
+    font-size: 14px;
+
+    color: #6b7280;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================
+   RESULT MESSAGE
+========================================= */
+
+.score-card h2 {
+    font-size: 25px;
+
+    margin-bottom: 8px;
+}
+
+.score-card p {
+    color: #6b7280;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.result-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   STAT CARD
+========================================= */
+
+.stat-card {
+    background: white;
+
+    padding: 25px 15px;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    box-shadow:
+        0 7px 20px
+        rgba(0, 0, 0, 0.06);
+
+    transition: 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.09);
+}
+
+.stat-card h3 {
+    font-size: 28px;
+
+    color: #4f46e5;
+
+    margin-bottom: 6px;
+}
+
+.stat-card p {
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   TIME CARD
+========================================= */
+
+.time-card {
+    background: white;
+
+    padding: 22px 30px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 7px 20px
+        rgba(0, 0, 0, 0.06);
+
+    margin-bottom: 25px;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    text-align: center;
+}
+
+.time-card h3 {
+    font-size: 15px;
+
+    color: #6b7280;
+
+    margin-bottom: 7px;
+}
+
+.time-card p {
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #4f46e5;
+}
+
+
+/* =========================================
+   PERFORMANCE CARD
+========================================= */
+
+.performance-card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 7px 20px
+        rgba(0, 0, 0, 0.06);
+
+    margin-bottom: 25px;
+}
+
+.performance-card h2 {
+    font-size: 22px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   PROGRESS SECTION
+========================================= */
+
+.progress-section {
+    margin-bottom: 20px;
+}
+
+.progress-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+}
+
+.progress-header span:first-child {
+    font-weight: 600;
+}
+
+.progress-header span:last-child {
+    color: #4f46e5;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   PROGRESS BAR
+========================================= */
+
+.progress-bar {
+    width: 100%;
+
+    height: 12px;
+
+    background: #e5e7eb;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+
+    background: #4f46e5;
+
+    border-radius: 20px;
+
+    width: 0%;
+
+    transition:
+        width 0.8s ease;
+}
+
+
+/* =========================================
+   PERFORMANCE MESSAGE
+========================================= */
+
+.performance-message {
+    margin-top: 20px;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    background: #f5f3ff;
+
+    color: #4c1d95;
+
+    line-height: 1.6;
+
+    font-size: 15px;
+}
+
+
+/* =========================================
+   ADAPTIVE RECOMMENDATION
+========================================= */
+
+.recommendation-card {
+    background: #eef2ff;
+
+    border: 1px solid #c7d2fe;
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    margin-bottom: 25px;
+}
+
+.recommendation-card h2 {
+    color: #3730a3;
+
+    font-size: 21px;
+
+    margin-bottom: 12px;
+}
+
+.recommendation-card p {
+    color: #4338ca;
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================
+   RECOMMENDATION ACTION
+========================================= */
+
+.recommendation-action {
+    background: white;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    color: #374151;
+}
+
+.recommendation-action strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #1f2937;
+}
+
+.recommendation-action span {
+    color: #4f46e5;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   WEAK TOPIC CARD
+========================================= */
+
+.weak-topic-card {
+    background: #fff7ed;
+
+    border: 1px solid #fed7aa;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    margin-bottom: 25px;
+}
+
+.weak-topic-card h2 {
+    color: #c2410c;
+
+    margin-bottom: 10px;
+
+    font-size: 21px;
+}
+
+.weak-topic-card p {
+    color: #7c2d12;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   ANSWER REVIEW
+========================================= */
+
+.review-section {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 7px 20px
+        rgba(0, 0, 0, 0.06);
+
+    margin-bottom: 25px;
+}
+
+.review-section h2 {
+    font-size: 22px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   INDIVIDUAL QUESTION
+========================================= */
+
+.review-question {
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    background: #ffffff;
+}
+
+
+/* Correct Question */
+
+.review-question.correct {
+    border-left:
+        5px solid #16a34a;
+}
+
+
+/* Incorrect Question */
+
+.review-question.incorrect {
+    border-left:
+        5px solid #dc2626;
+}
+
+
+/* =========================================
+   QUESTION TEXT
+========================================= */
+
+.review-question h3 {
+    font-size: 16px;
+
+    margin-bottom: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   ANSWER ROW
+========================================= */
+
+.answer-row {
+    margin: 8px 0;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.answer-label {
+    font-weight: bold;
+}
+
+
+/* Correct Answer */
+
+.correct-answer {
+    color: #15803d;
+
+    font-weight: 600;
+}
+
+
+/* Wrong Answer */
+
+.wrong-answer {
+    color: #dc2626;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   EXPLANATION
+========================================= */
+
+.explanation {
+    background: #f9fafb;
+
+    padding: 12px;
+
+    margin-top: 12px;
+
+    border-radius: 10px;
+
+    color: #4b5563;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.explanation strong {
+    color: #1f2937;
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.result-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.result-btn {
+    text-decoration: none;
+
+    border: none;
+
+    padding: 13px 24px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+/* Primary */
+
+.primary-btn {
+    background: #4f46e5;
+
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #4338ca;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* Secondary */
+
+.secondary-btn {
+    background: #e5e7eb;
+
+    color: #1f2937;
+}
+
+.secondary-btn:hover {
+    background: #d1d5db;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 850px) {
+
+    .result-stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .result-header h1 {
+        font-size: 27px;
+    }
+
+    .quiz-info {
+        gap: 10px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 550px) {
+
+    .result-container {
+        width: 94%;
+
+        margin: 20px auto;
+    }
+
+
+    .result-header {
+        padding: 25px 15px;
+    }
+
+
+    .result-header h1 {
+        font-size: 24px;
+    }
+
+
+    .quiz-info {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 8px;
+    }
+
+
+    .score-card {
+        padding: 25px 15px;
+    }
+
+
+    .score-circle {
+        width: 125px;
+
+        height: 125px;
+    }
+
+
+    .score-circle .score {
+        font-size: 30px;
+    }
+
+
+    .result-stats {
+        grid-template-columns: 1fr;
+    }
+
+
+    .time-card {
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+
+    .performance-card {
+        padding: 22px;
+    }
+
+
+    .recommendation-card {
+        padding: 22px;
+    }
+
+
+    .review-section {
+        padding: 22px;
+    }
+
+
+    .result-actions {
+        flex-direction: column;
+    }
+
+
+    .result-btn {
+        width: 100%;
+
+        text-align: center;
+    }
+
+}

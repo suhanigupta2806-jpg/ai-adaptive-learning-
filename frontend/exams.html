@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Exams - AdaptiveLearn</title>
+
+    <link rel="stylesheet" href="css/exams.css">
+    <link rel="stylesheet" href="css/app-theme.css">
+
+    <style>
+        /* Back to Dashboard */
+
+        .back-dashboard {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            text-decoration: none;
+
+            color: #4f46e5;
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+
+            padding: 10px 16px;
+
+            font-size: 13px;
+            font-weight: 750;
+
+            transition: all 0.2s ease;
+
+            margin-top: 18px;
+        }
+
+        .back-dashboard:hover {
+            background: #f3f4ff;
+            border-color: #c7d2fe;
+            transform: translateY(-1px);
+        }
+
+        .back-dashboard:active {
+            transform: translateY(0);
+        }
+
+        /* Profile */
+
+        .profile {
+            cursor: pointer;
+        }
+
+        .profile-avatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            Adaptive<span>Learn</span>
+        </div>
+
+        <div class="sidebar-menu">
+
+            <p class="menu-title">
+                MAIN MENU
+            </p>
+
+            <a href="dashboard.html" class="menu-item">
+                <span>🏠</span>
+                Dashboard
+            </a>
+
+            <a href="exams.html" class="menu-item active">
+                <span>📚</span>
+                My Exams
+            </a>
+
+            <a href="practice.html" class="menu-item">
+                <span>📝</span>
+                Practice
+            </a>
+
+            <a href="mock-test.html" class="menu-item">
+                <span>🧪</span>
+                Mock Test
+            </a>
+
+            <a href="study-plan.html" class="menu-item">
+                <span>📅</span>
+                Study Plan
+            </a>
+
+            <a href="daily-challenge.html" class="menu-item">
+                <span>🎯</span>
+                Daily Challenge
+            </a>
+
+            <p class="menu-title second-title">
+                TRACK
+            </p>
+
+            <a href="dashboard.html#weakAreas" class="menu-item">
+                <span>📊</span>
+                Progress
+            </a>
+
+            <a href="achievements.html" class="menu-item">
+                <span>🏆</span>
+                Achievements
+            </a>
+
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <a href="settings.html" class="menu-item">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+            <a href="index.html" class="menu-item logout">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div>
+
+                <p class="page-label">
+                    EXAM PREPARATION
+                </p>
+
+                <h1>
+                    My Exams
+                </h1>
+
+                <!-- WORKING BACK BUTTON -->
+                <a
+                    href="dashboard.html"
+                    class="back-dashboard"
+                >
+                    ← Back to Dashboard
+                </a>
+
+            </div>
+
+
+            <!-- LOGGED-IN PROFILE -->
+            <div
+                class="profile"
+                id="profileButton"
+                title="Open Profile"
+            >
+
+                <div
+                    class="profile-avatar"
+                    id="profileAvatar"
+                >
+                    S
+                </div>
+
+                <div>
+
+                    <strong id="profileName">
+                        Student
+                    </strong>
+
+                    <small id="profileExam">
+                        Exam Preparation
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- INTRO -->
+        <section class="intro">
+
+            <div>
+
+                <p class="intro-label">
+                    PERSONALIZED PREPARATION
+                </p>
+
+                <h2>
+                    Choose your target exam
+                </h2>
+
+                <p>
+                    Select an exam to view its subjects,
+                    topics, practice questions and personalized
+                    preparation plan.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXAM CARDS -->
+        <section class="exam-grid">
+
+
+            <!-- ESIC -->
+            <div class="exam-card">
+
+                <div class="exam-icon">
+                    E
+                </div>
+
+                <div class="exam-content">
+
+                    <span
+                        class="exam-tag"
+                        id="esicTag"
+                    >
+                        AVAILABLE
+                    </span>
+
+                    <h3>
+                        ESIC UDC
+                    </h3>
+
+                    <p>
+                        Employees' State Insurance Corporation
+                        Upper Division Clerk examination.
+                    </p>
+
+                    <div class="exam-details">
+
+                        <div>
+                            <span>
+                                Subjects
+                            </span>
+
+                            <strong>
+                                4
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>
+                                Difficulty
+                            </span>
+
+                            <strong>
+                                Moderate
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>
+                                Progress
+                            </span>
+
+                            <strong id="esicProgress">
+                                0%
+                            </strong>
+                        </div>
+
+                    </div>
+
+                    <a
+                        href="subjects.html?exam=esic"
+                        class="exam-button"
+                    >
+                        Start Preparation →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- OICL -->
+            <div class="exam-card">
+
+                <div class="exam-icon">
+                    O
+                </div>
+
+                <div class="exam-content">
+
+                    <span
+                        class="exam-tag"
+                        id="oiclTag"
+                    >
+                        AVAILABLE
+                    </span>
+
+                    <h3>
+                        OICL Assistant
+                    </h3>
+
+                    <p>
+                        Oriental Insurance Company Limited
+                        Assistant examination.
+                    </p>
+
+                    <div class="exam-details">
+
+                        <div>
+                            <span>
+                                Subjects
+                            </span>
+
+                            <strong>
+                                4
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>
+                                Difficulty
+                            </span>
+
+                            <strong>
+                                Moderate
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>
+                                Progress
+                            </span>
+
+                            <strong id="oiclProgress">
+                                0%
+                            </strong>
+                        </div>
+
+                    </div>
+
+                    <a
+                        href="subjects.html?exam=oicl"
+                        class="exam-button secondary"
+                    >
+                        Start Preparation →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- NIACL -->
+            <div class="exam-card">
+
+                <div class="exam-icon">
+                    N
+                </div>
+
+                <div class="exam-content">
+
+                    <span
+                        class="exam-tag"
+                        id="niaclTag"
+                    >
+                        AVAILABLE
+                    </span>
+
+                    <h3>
+                        NIACL Assistant
+                    </h3>
+
+                    <p>
+                        New India Assurance Company Limited
+                        Assistant examination.
+                    </p>
+
+                    <div class="exam-details">
+
+                        <div>
+                            <span>
+                                Subjects
+                            </span>
+
+                            <strong>
+                                4
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>
+                                Difficulty
+                            </span>
+
+                            <strong>
+                                Moderate
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>
+                                Progress
+                            </span>
+
+                            <strong id="niaclProgress">
+                                0%
+                            </strong>
+                        </div>
+
+                    </div>
+
+                    <a
+                        href="subjects.html?exam=niacl"
+                        class="exam-button secondary"
+                    >
+                        Start Preparation →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HOW IT WORKS -->
+        <section class="how-section">
+
+            <div class="section-heading">
+
+                <p>
+                    HOW IT WORKS
+                </p>
+
+                <h2>
+                    Your preparation adapts as you learn
+                </h2>
+
+            </div>
+
+
+            <div class="steps">
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Practice
+                        </h3>
+
+                        <p>
+                            Answer questions from your
+                            selected exam.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Analyze
+                        </h3>
+
+                        <p>
+                            The system evaluates your
+                            performance by topic.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        03
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Adapt
+                        </h3>
+
+                        <p>
+                            Your next practice session is
+                            adjusted according to your needs.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        const API_BASE = "http://localhost:5000";
+
+        const token =
+            localStorage.getItem("adaptiveLearnToken");
+
+
+        /*
+         * Escape HTML before putting API data
+         * into the page.
+         */
+
+        function escapeHTML(value) {
+
+            return String(value ?? "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+
+        /*
+         * Get the currently selected exam.
+         *
+         * auth.js stores the selected exam locally
+         * during registration/login flow.
+         */
+
+        function getSelectedExam() {
+
+            return (
+                localStorage.getItem("adaptiveLearnExam") ||
+                localStorage.getItem("selectedExam") ||
+                ""
+            ).toLowerCase();
+        }
+
+
+        /*
+         * Set the logged-in student's profile.
+         */
+
+        function updateProfile(student) {
+
+            const name =
+                student.name ||
+                "Student";
+
+            const firstLetter =
+                name
+                    .trim()
+                    .charAt(0)
+                    .toUpperCase() ||
+                "S";
+
+            const selectedExam =
+                getSelectedExam();
+
+
+            document.getElementById(
+                "profileAvatar"
+            ).textContent = firstLetter;
+
+
+            document.getElementById(
+                "profileName"
+            ).textContent = name;
+
+
+            /*
+             * Show the selected exam underneath
+             * the student's name.
+             */
+
+            let examText =
+                "Exam Preparation";
+
+
+            if (
+                selectedExam.includes("esic")
+            ) {
+
+                examText =
+                    "ESIC UDC";
+
+            }
+            else if (
+                selectedExam.includes("oicl")
+            ) {
+
+                examText =
+                    "OICL Assistant";
+
+            }
+            else if (
+                selectedExam.includes("niacl")
+            ) {
+
+                examText =
+                    "NIACL Assistant";
+            }
+
+
+            document.getElementById(
+                "profileExam"
+            ).textContent = examText;
+        }
+
+
+        /*
+         * Mark the student's selected exam.
+         */
+
+        function updateSelectedExam() {
+
+            const selectedExam =
+                getSelectedExam();
+
+
+            const cards = [
+                {
+                    key: "esic",
+                    tag: document.getElementById("esicTag")
+                },
+                {
+                    key: "oicl",
+                    tag: document.getElementById("oiclTag")
+                },
+                {
+                    key: "niacl",
+                    tag: document.getElementById("niaclTag")
+                }
+            ];
+
+
+            cards.forEach(card => {
+
+                if (!card.tag) {
+                    return;
+                }
+
+
+                if (
+                    selectedExam.includes(card.key)
+                ) {
+
+                    card.tag.textContent =
+                        "SELECTED EXAM";
+
+                }
+                else {
+
+                    card.tag.textContent =
+                        "AVAILABLE";
+                }
+
+            });
+        }
+
+
+        /*
+         * Load the real logged-in student.
+         */
+
+        async function loadLoggedInStudent() {
+
+            if (!token) {
+
+                window.location.href =
+                    "login.html";
+
+                return;
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${API_BASE}/api/auth/profile`,
+                        {
+                            method: "GET",
+
+                            headers: {
+                                "Authorization":
+                                    `Bearer ${token}`,
+
+                                "Accept":
+                                    "application/json"
+                            }
+                        }
+                    );
+
+
+                /*
+                 * Token expired or invalid.
+                 */
+
+                if (
+                    response.status === 401 ||
+                    response.status === 403
+                ) {
+
+                    localStorage.removeItem(
+                        "adaptiveLearnToken"
+                    );
+
+                    localStorage.removeItem(
+                        "adaptiveLearnUser"
+                    );
+
+                    window.location.href =
+                        "login.html";
+
+                    return;
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                if (
+                    !response.ok ||
+                    !data.success
+                ) {
+
+                    throw new Error(
+                        data.message ||
+                        "Unable to load profile"
+                    );
+                }
+
+
+                const student =
+                    data.student ||
+                    data.user ||
+                    data.profile ||
+                    {};
+
+
+                /*
+                 * Update the page with the actual
+                 * logged-in student's information.
+                 */
+
+                updateProfile(student);
+
+
+                /*
+                 * Keep localStorage synchronized.
+                 */
+
+                try {
+
+                    const existing =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "adaptiveLearnUser"
+                            ) || "{}"
+                        );
+
+
+                    localStorage.setItem(
+                        "adaptiveLearnUser",
+                        JSON.stringify({
+                            ...existing,
+                            ...student
+                        })
+                    );
+
+                } catch (storageError) {
+
+                    console.warn(
+                        "Unable to update local user data:",
+                        storageError
+                    );
+
+                }
+
+
+            } catch (error) {
+
+                console.error(
+                    "Unable to load logged-in student:",
+                    error
+                );
+
+
+                /*
+                 * If API temporarily fails,
+                 * use the same stored login information
+                 * rather than displaying hardcoded
+                 * "Student".
+                 */
+
+                try {
+
+                    const storedUser =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "adaptiveLearnUser"
+                            ) || "{}"
+                        );
+
+
+                    if (
+                        storedUser &&
+                        storedUser.name
+                    ) {
+
+                        updateProfile(
+                            storedUser
+                        );
+
+                    }
+
+                } catch (localError) {
+
+                    console.error(
+                        "Unable to read stored student:",
+                        localError
+                    );
+
+                }
+
+            }
+        }
+
+
+        /*
+         * Clicking the profile opens the actual
+         * Profile page.
+         */
+
+        document
+            .getElementById("profileButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    window.location.href =
+                        "profile.html";
+
+                }
+            );
+
+
+        /*
+         * Initialize page.
+         */
+
+        updateSelectedExam();
+
+        loadLoggedInStudent();
+
+    </script>
+
+
+    <script src="js/exams.js"></script>
+
+</body>
+
+</html>

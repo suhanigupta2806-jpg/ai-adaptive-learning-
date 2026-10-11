@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Practice Quiz - AdaptiveLearn
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/quiz.css?v=20260914-2"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="quiz-header">
+
+        <div class="logo">
+
+            Adaptive<span>Learn</span>
+
+        </div>
+
+
+        <div
+            class="exam-name"
+            id="examName"
+        >
+            Adaptive Practice
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         QUIZ CONTAINER
+    ====================================================== -->
+
+    <main class="quiz-container">
+
+
+        <!-- =================================================
+             TOP
+        ================================================== -->
+
+        <div class="quiz-top">
+
+            <div
+                class="question-count"
+                id="questionCount"
+            >
+                Loading...
+            </div>
+
+
+            <div
+                class="timer"
+                id="timer"
+            >
+                ⏱ 10:00
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PROGRESS
+        ================================================== -->
+
+        <div class="progress-container">
+
+            <div
+                class="progress-bar"
+                id="progressBar"
+            ></div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             QUESTION CARD
+        ================================================== -->
+
+        <section class="question-card">
+
+
+            <span
+                class="topic-label"
+                id="topicLabel"
+            >
+                Practice
+            </span>
+
+
+            <h1
+                class="question-text"
+                id="questionText"
+            >
+                Loading question...
+            </h1>
+
+
+            <!-- =============================================
+                 OPTIONS
+            ============================================== -->
+
+            <div
+                class="options"
+                id="optionsContainer"
+            >
+            </div>
+
+
+
+            <!-- =============================================
+                 ACTION BUTTONS
+            ============================================== -->
+
+            <div class="quiz-actions">
+
+
+                <button
+                    type="button"
+                    class="previous-button"
+                    id="previousButton"
+                    disabled
+                >
+                    ← Previous
+                </button>
+
+
+                <button
+                    type="button"
+                    class="submit-button"
+                    id="submitButton"
+                >
+                    Next Question →
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =============================================
+                 MESSAGE
+            ============================================== -->
+
+            <div
+                class="quiz-message"
+                id="quizMessage"
+            >
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         QUIZ JAVASCRIPT
+
+         New version number forces the browser to load
+         the corrected file.
+    ====================================================== -->
+
+    <script
+        src="js/quiz.js?v=20260914-2"
+    ></script>
+    <script src="js/profile-sync.js"></script>
+
+
+</body>
+
+</html>

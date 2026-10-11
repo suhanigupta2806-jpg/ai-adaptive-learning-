@@ -1,0 +1,2776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Profile - AdaptiveLearn</title>
+
+    <link
+        rel="stylesheet"
+        href="css/app-theme.css"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                Inter,
+                Arial,
+                sans-serif;
+            background: #f5f7fb;
+            color: #111827;
+        }
+
+        .page {
+            min-height: 100vh;
+            padding: 38px 40px 60px;
+        }
+
+        .top {
+            max-width: 1080px;
+            margin: 0 auto 28px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-left {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .label {
+            color: #4f46e5;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.7px;
+        }
+
+        .top h2 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .back {
+            text-decoration: none;
+            color: #4f46e5;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+
+        /* =====================================================
+           PROFILE HERO
+           ===================================================== */
+
+        .hero {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #111827,
+                    #1e293b
+                );
+
+            color: white;
+
+            border-radius: 22px;
+
+            padding: 34px;
+
+            display: flex;
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+
+            margin-bottom: 22px;
+
+            box-shadow:
+                0 12px 30px
+                rgba(15, 23, 42, .12);
+
+        }
+
+
+        .hero-main {
+
+            display: flex;
+            align-items: center;
+            gap: 22px;
+
+            min-width: 0;
+        }
+
+
+        .avatar {
+
+            width: 88px;
+            height: 88px;
+
+            min-width: 88px;
+
+            border-radius: 22px;
+
+            background: #6366f1;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 34px;
+            font-weight: 800;
+
+            box-shadow:
+                0 8px 20px
+                rgba(99, 102, 241, .30);
+
+        }
+
+
+        .hero-info h1 {
+
+            margin: 0 0 7px;
+
+            font-size: 30px;
+        }
+
+
+        .hero-info p {
+
+            margin: 0 0 10px;
+
+            color: #cbd5e1;
+
+            font-size: 15px;
+        }
+
+
+        .exam-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 7px 12px;
+
+            border-radius: 9px;
+
+            background:
+                rgba(99, 102, 241, .20);
+
+            color: #c7d2fe;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+        }
+
+
+        .student-id {
+
+            text-align: right;
+
+            color: #94a3b8;
+
+            font-size: 13px;
+
+        }
+
+
+        .student-id strong {
+
+            display: block;
+
+            color: white;
+
+            font-size: 16px;
+
+            margin-top: 4px;
+
+        }
+
+
+        /* =====================================================
+           CARDS
+           ===================================================== */
+
+        .card {
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(15, 23, 42, .06);
+
+            margin-bottom: 20px;
+
+            border:
+                1px solid #eef0f5;
+
+        }
+
+
+        .card-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-start;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .card h2 {
+
+            margin: 0;
+
+            font-size: 20px;
+
+            color: #111827;
+
+        }
+
+
+        .card-subtitle {
+
+            margin-top: 6px;
+
+            color: #64748b;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =====================================================
+           PERSONAL INFORMATION
+           ===================================================== */
+
+        .grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+
+        label {
+
+            display: block;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            color: #374151;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        input {
+
+            width: 100%;
+
+            padding: 13px 15px;
+
+            border:
+                1px solid #d1d5db;
+
+            border-radius: 10px;
+
+            font-size: 15px;
+
+            color: #111827;
+
+            background: white;
+
+            outline: none;
+
+            transition:
+                border-color .2s,
+                box-shadow .2s;
+
+        }
+
+
+        input:focus {
+
+            border-color: #6366f1;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(99, 102, 241, .10);
+
+        }
+
+
+        input:disabled {
+
+            background: #f8fafc;
+
+            color: #64748b;
+
+        }
+
+
+        .field-note {
+
+            margin-top: 6px;
+
+            font-size: 12px;
+
+            color: #94a3b8;
+
+        }
+
+
+        .actions {
+
+            margin-top: 24px;
+
+            display: flex;
+
+            gap: 12px;
+
+        }
+
+
+        button {
+
+            border: none;
+
+            border-radius: 10px;
+
+            padding: 12px 21px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .2s;
+
+        }
+
+
+        .save {
+
+            background: #4f46e5;
+
+            color: white;
+
+        }
+
+
+        .save:hover {
+
+            background: #4338ca;
+
+        }
+
+
+        .save:disabled {
+
+            opacity: .6;
+
+            cursor: not-allowed;
+
+        }
+
+
+        .cancel {
+
+            background: #eef2f7;
+
+            color: #374151;
+
+        }
+
+
+        .cancel:hover {
+
+            background: #e2e8f0;
+
+        }
+
+
+        .message {
+
+            margin-top: 14px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =====================================================
+           STATISTICS
+           ===================================================== */
+
+        .stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 14px;
+
+        }
+
+
+        .stat {
+
+            background: #f8fafc;
+
+            border:
+                1px solid #edf0f5;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+        }
+
+
+        .stat-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 13px;
+
+        }
+
+
+        .stat-icon {
+
+            width: 38px;
+            height: 38px;
+
+            border-radius: 10px;
+
+            background: #eef2ff;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 18px;
+
+        }
+
+
+        .stat strong {
+
+            display: block;
+
+            font-size: 26px;
+
+            color: #4f46e5;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .stat span {
+
+            font-size: 13px;
+
+            color: #64748b;
+
+        }
+
+
+        /* =====================================================
+           LEARNING FOCUS
+           ===================================================== */
+
+        .focus-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 16px;
+
+        }
+
+
+        .focus-card {
+
+            border:
+                1px solid #e8ebf2;
+
+            border-radius: 15px;
+
+            padding: 20px;
+
+            background: #fff;
+
+        }
+
+
+        .focus-label {
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: .7px;
+
+            color: #94a3b8;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .focus-name {
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            color: #111827;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .focus-score {
+
+            font-size: 14px;
+
+            color: #64748b;
+
+        }
+
+
+        .focus-card.strong {
+
+            border-color: #bbf7d0;
+
+            background: #f0fdf4;
+
+        }
+
+
+        .focus-card.strong .focus-label {
+
+            color: #15803d;
+
+        }
+
+
+        .focus-card.improving {
+
+            border-color: #fde68a;
+
+            background: #fffbeb;
+
+        }
+
+
+        .focus-card.improving .focus-label {
+
+            color: #b45309;
+
+        }
+
+
+        .focus-card.weak {
+
+            border-color: #fecaca;
+
+            background: #fef2f2;
+
+        }
+
+
+        .focus-card.weak .focus-label {
+
+            color: #dc2626;
+
+        }
+
+
+        /* =====================================================
+           SUBJECT PERFORMANCE
+           ===================================================== */
+
+        .subject-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 16px;
+
+        }
+
+
+        .subject-row {
+
+            padding: 16px;
+
+            background: #f8fafc;
+
+            border-radius: 13px;
+
+            border:
+                1px solid #edf0f5;
+
+        }
+
+
+        .subject-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .subject-name {
+
+            font-weight: 700;
+
+            color: #1f2937;
+
+        }
+
+
+        .subject-value {
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            color: #4f46e5;
+
+        }
+
+
+        .progress-track {
+
+            height: 8px;
+
+            background: #e5e7eb;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+        }
+
+
+        .progress-fill {
+
+            height: 100%;
+
+            border-radius: 20px;
+
+            background: #6366f1;
+
+            transition: width .4s ease;
+
+        }
+
+
+        .subject-meta {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-top: 8px;
+
+            font-size: 12px;
+
+            color: #94a3b8;
+
+        }
+
+
+        .status {
+
+            font-weight: 700;
+
+        }
+
+
+        .status.strong {
+
+            color: #15803d;
+
+        }
+
+
+        .status.improving {
+
+            color: #b45309;
+
+        }
+
+
+        .status.weak {
+
+            color: #dc2626;
+
+        }
+
+
+        /* =====================================================
+           ACCOUNT INFORMATION
+           ===================================================== */
+
+        .account-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 14px;
+
+        }
+
+
+        .account-item {
+
+            padding: 16px;
+
+            border-radius: 13px;
+
+            background: #f8fafc;
+
+        }
+
+
+        .account-item span {
+
+            display: block;
+
+            font-size: 12px;
+
+            color: #94a3b8;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .account-item strong {
+
+            color: #374151;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           EMPTY / LOADING
+           ===================================================== */
+
+        .loading {
+
+            text-align: center;
+
+            padding: 70px;
+
+            color: #64748b;
+
+        }
+
+
+        .spinner {
+
+            width: 38px;
+            height: 38px;
+
+            border:
+                3px solid #e5e7eb;
+
+            border-top-color:
+                #6366f1;
+
+            border-radius: 50%;
+
+            animation:
+                spin .8s linear infinite;
+
+            margin: 0 auto 15px;
+
+        }
+
+
+        @keyframes spin {
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        .no-data {
+
+            padding: 22px;
+
+            text-align: center;
+
+            background: #f8fafc;
+
+            border-radius: 13px;
+
+            color: #64748b;
+
+            font-size: 14px;
+
+        }
+
+
+        @media (max-width: 900px) {
+
+            .stats {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+            .focus-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .page {
+
+                padding: 22px 16px 45px;
+
+            }
+
+            .top {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 15px;
+
+            }
+
+            .hero {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+            }
+
+            .student-id {
+
+                text-align: left;
+
+            }
+
+            .grid,
+            .stats,
+            .account-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .hero-info h1 {
+
+                font-size: 25px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- =====================================================
+         PAGE HEADER
+         ===================================================== -->
+
+    <div class="top">
+
+        <div class="top-left">
+
+            <div class="label">
+                ACCOUNT & LEARNING
+            </div>
+
+            <h2>
+                My Profile
+            </h2>
+
+        </div>
+
+
+        <a
+            href="dashboard.html"
+            class="back"
+        >
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+
+    <div
+        class="container"
+        id="profileContainer"
+    >
+
+        <div class="loading">
+
+            <div class="spinner"></div>
+
+            Loading your profile...
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+/* =========================================================
+   CONFIGURATION
+   ========================================================= */
+
+const API_BASE_URL =
+    "http://localhost:5000";
+
+
+const token =
+    localStorage.getItem(
+        "adaptiveLearnToken"
+    );
+
+
+if (!token) {
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+const container =
+    document.getElementById(
+        "profileContainer"
+    );
+
+
+let originalName = "";
+let originalEmail = "";
+
+let currentStudent = {};
+
+let dashboardInfo = {};
+
+
+/* =========================================================
+   EXAM INFORMATION
+   ========================================================= */
+
+function getSelectedExam() {
+
+    try {
+
+        const user =
+            JSON.parse(
+                localStorage.getItem(
+                    "adaptiveLearnUser"
+                ) || "{}"
+            );
+
+
+        const exam =
+            user.exam ||
+            user.exam_name ||
+            user.target_exam ||
+            "";
+
+
+        if (exam) {
+
+            return formatExamName(exam);
+
+        }
+
+
+        return "Exam not selected";
+
+    }
+    catch (error) {
+
+        return "Exam not selected";
+
+    }
+
+}
+
+
+function formatExamName(exam) {
+
+    const value =
+        String(exam)
+            .trim()
+            .toLowerCase();
+
+
+    if (
+        value === "esic" ||
+        value.includes("esic")
+    ) {
+
+        return "ESIC UDC";
+
+    }
+
+
+    if (
+        value === "oicl" ||
+        value.includes("oicl")
+    ) {
+
+        return "OICL Assistant";
+
+    }
+
+
+    if (
+        value === "niacl" ||
+        value.includes("niacl")
+    ) {
+
+        return "NIACL Assistant";
+
+    }
+
+
+    return exam;
+
+}
+
+
+/* =========================================================
+   ESCAPING
+   ========================================================= */
+
+function escapeHtml(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+function escapeAttribute(value) {
+
+    return escapeHtml(value);
+
+}
+
+
+/* =========================================================
+   FORMAT DATE
+   ========================================================= */
+
+function formatDate(value) {
+
+    if (!value) {
+
+        return "Not available";
+
+    }
+
+
+    const date =
+        new Date(value);
+
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+
+        return String(value);
+
+    }
+
+
+    return date.toLocaleDateString(
+        [],
+        {
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   LOAD PROFILE + DASHBOARD DATA
+   ========================================================= */
+
+async function loadProfile() {
+
+    try {
+
+        /*
+         * Load both APIs.
+         *
+         * Profile API:
+         * name, email, student ID, XP, streak, created date
+         *
+         * Dashboard API:
+         * quizzes, questions, accuracy,
+         * subject/topic performance
+         */
+
+        const [
+            profileResponse,
+            dashboardResponse
+        ] = await Promise.all([
+
+            fetch(
+                `${API_BASE_URL}/api/auth/profile`,
+                {
+                    method: "GET",
+
+                    headers: {
+                        "Authorization":
+                            `Bearer ${token}`,
+
+                        "Accept":
+                            "application/json"
+                    }
+                }
+            ),
+
+            fetch(
+                `${API_BASE_URL}/api/dashboard/`,
+                {
+                    method: "GET",
+
+                    headers: {
+                        "Authorization":
+                            `Bearer ${token}`,
+
+                        "Accept":
+                            "application/json"
+                    }
+                }
+            )
+
+        ]);
+
+
+        if (
+            profileResponse.status === 401 ||
+            profileResponse.status === 403
+        ) {
+
+            logoutAndLogin();
+
+            return;
+
+        }
+
+
+        const profileData =
+            await profileResponse.json();
+
+
+        if (
+            !profileResponse.ok ||
+            !profileData.success
+        ) {
+
+            throw new Error(
+                profileData.message ||
+                "Unable to load profile"
+            );
+
+        }
+
+
+        currentStudent =
+            profileData.student ||
+            {};
+
+
+        if (dashboardResponse.ok) {
+
+            const dashboardData =
+                await dashboardResponse.json();
+
+
+            if (
+                dashboardData.success &&
+                dashboardData.dashboard
+            ) {
+
+                dashboardInfo =
+                    dashboardData.dashboard;
+
+            }
+
+        }
+
+
+        renderProfile(
+            currentStudent,
+            dashboardInfo
+        );
+
+
+    }
+    catch (error) {
+
+        console.error(
+            "Profile loading error:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="card">
+
+                <h2>
+                    Unable to load profile
+                </h2>
+
+                <p
+                    style="
+                        color:#64748b;
+                        margin-top:8px;
+                    "
+                >
+                    ${escapeHtml(
+                        error.message ||
+                        "Please make sure the backend is running."
+                    )}
+                </p>
+
+                <a
+                    href="dashboard.html"
+                    class="back"
+                    style="
+                        display:inline-block;
+                        margin-top:18px;
+                    "
+                >
+                    Return to Dashboard
+                </a>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   CALCULATE SUBJECT PERFORMANCE
+   ========================================================= */
+
+function buildSubjectPerformance(progressRows) {
+
+    const subjects = {};
+
+
+    (progressRows || []).forEach(
+        function(item) {
+
+            const subject =
+                item.subject_name ||
+                "Other";
+
+
+            if (!subjects[subject]) {
+
+                subjects[subject] = {
+
+                    attempted: 0,
+
+                    correct: 0,
+
+                    topics: []
+
+                };
+
+            }
+
+
+            subjects[subject].attempted +=
+                Number(
+                    item.questions_attempted
+                ) || 0;
+
+
+            subjects[subject].correct +=
+                Number(
+                    item.questions_correct
+                ) || 0;
+
+
+            subjects[subject].topics.push(
+                item
+            );
+
+        }
+    );
+
+
+    return Object.entries(subjects)
+        .map(
+            function([
+                name,
+                value
+            ]) {
+
+                const accuracy =
+                    value.attempted > 0
+
+                        ? Math.round(
+                            (
+                                value.correct /
+                                value.attempted
+                            ) * 100
+                        )
+
+                        : 0;
+
+
+                return {
+
+                    name,
+
+                    attempted:
+                        value.attempted,
+
+                    correct:
+                        value.correct,
+
+                    accuracy
+
+                };
+
+            }
+        )
+        .sort(
+            function(a, b) {
+
+                return b.accuracy -
+                    a.accuracy;
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   PERFORMANCE STATUS
+   ========================================================= */
+
+function getPerformanceStatus(
+    accuracy
+) {
+
+    const value =
+        Number(accuracy) || 0;
+
+
+    if (value >= 70) {
+
+        return {
+            className: "strong",
+            label: "Strong"
+        };
+
+    }
+
+
+    if (value >= 60) {
+
+        return {
+            className: "improving",
+            label: "Improving"
+        };
+
+    }
+
+
+    return {
+        className: "weak",
+        label: "Needs Attention"
+    };
+
+}
+
+
+/* =========================================================
+   RENDER PROFILE
+   ========================================================= */
+
+function renderProfile(
+    student,
+    dashboard
+) {
+
+    originalName =
+        student.name || "";
+
+
+    originalEmail =
+        student.email || "";
+
+
+    const firstLetter =
+        String(
+            student.name || "S"
+        )
+            .trim()
+            .charAt(0)
+            .toUpperCase();
+
+
+    const quizStats =
+        dashboard.quiz_stats || {};
+
+
+    const progressRows =
+        dashboard.progress || [];
+
+
+    const subjectPerformance =
+        buildSubjectPerformance(
+            progressRows
+        );
+
+
+    const totalQuizzes =
+        Number(
+            quizStats.total_quizzes
+        ) || 0;
+
+
+    const questionsAttempted =
+        Number(
+            quizStats.questions_attempted
+        ) || 0;
+
+
+    const questionsCorrect =
+        Number(
+            quizStats.questions_correct
+        ) || 0;
+
+
+    const averageScore =
+        Number(
+            quizStats.average_score
+        ) || 0;
+
+
+    const overallAccuracy =
+        questionsAttempted > 0
+
+            ? Math.round(
+                (
+                    questionsCorrect /
+                    questionsAttempted
+                ) * 100
+            )
+
+            : averageScore;
+
+
+    const strongest =
+        subjectPerformance.length > 0
+
+            ? subjectPerformance[0]
+
+            : null;
+
+
+    const weakest =
+        subjectPerformance.length > 0
+
+            ? subjectPerformance[
+                subjectPerformance.length - 1
+            ]
+
+            : null;
+
+
+    const improving =
+        subjectPerformance.find(
+            function(subject) {
+
+                return (
+                    subject.accuracy >= 60 &&
+                    subject.accuracy < 70
+                );
+
+            }
+        );
+
+
+    const exam =
+        getSelectedExam();
+
+
+    let subjectsHTML = "";
+
+
+    if (subjectPerformance.length > 0) {
+
+        subjectsHTML =
+            subjectPerformance
+                .map(
+                    function(subject) {
+
+                        const status =
+                            getPerformanceStatus(
+                                subject.accuracy
+                            );
+
+
+                        return `
+
+                            <div
+                                class="subject-row"
+                            >
+
+                                <div
+                                    class="subject-top"
+                                >
+
+                                    <span
+                                        class="subject-name"
+                                    >
+                                        ${escapeHtml(
+                                            subject.name
+                                        )}
+                                    </span>
+
+                                    <span
+                                        class="subject-value"
+                                    >
+                                        ${subject.accuracy}%
+                                    </span>
+
+                                </div>
+
+
+                                <div
+                                    class="progress-track"
+                                >
+
+                                    <div
+                                        class="progress-fill"
+                                        style="
+                                            width:
+                                            ${Math.max(
+                                                0,
+                                                Math.min(
+                                                    100,
+                                                    subject.accuracy
+                                                )
+                                            )}%;
+                                        "
+                                    ></div>
+
+                                </div>
+
+
+                                <div
+                                    class="subject-meta"
+                                >
+
+                                    <span>
+                                        ${
+                                            subject.attempted
+                                        }
+                                        questions attempted
+                                    </span>
+
+                                    <span
+                                        class="
+                                            status
+                                            ${status.className}
+                                        "
+                                    >
+                                        ${status.label}
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        `;
+
+                    }
+                )
+                .join("");
+
+    }
+    else {
+
+        subjectsHTML = `
+
+            <div class="no-data">
+
+                📊 Complete your first quiz
+                to see subject-wise performance.
+
+            </div>
+
+        `;
+
+    }
+
+
+    container.innerHTML = `
+
+        <!-- =================================================
+             HERO
+             ================================================= -->
+
+        <div class="hero">
+
+            <div class="hero-main">
+
+                <div class="avatar">
+
+                    ${escapeHtml(firstLetter)}
+
+                </div>
+
+
+                <div class="hero-info">
+
+                    <h1>
+                        ${escapeHtml(
+                            student.name ||
+                            "Student"
+                        )}
+                    </h1>
+
+                    <p>
+                        ${escapeHtml(
+                            student.email ||
+                            ""
+                        )}
+                    </p>
+
+
+                    <div
+                        class="exam-badge"
+                    >
+
+                        🎯
+
+                        Preparing for:
+                        ${escapeHtml(exam)}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="student-id"
+            >
+
+                Student ID
+
+                <strong>
+                    #${escapeHtml(
+                        student.student_id
+                    )}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PERSONAL INFORMATION
+             ================================================= -->
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Personal Information
+                    </h2>
+
+                    <div
+                        class="card-subtitle"
+                    >
+                        Manage the basic information
+                        associated with your account.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="grid">
+
+                <div class="field">
+
+                    <label
+                        for="name"
+                    >
+                        Full Name
+                    </label>
+
+                    <input
+                        id="name"
+                        type="text"
+                        value="${escapeAttribute(
+                            student.name
+                        )}"
+                        maxlength="100"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label
+                        for="email"
+                    >
+                        Email Address
+                    </label>
+
+                    <input
+                        id="email"
+                        type="email"
+                        value="${escapeAttribute(
+                            student.email
+                        )}"
+                        maxlength="150"
+                    >
+
+                    <div
+                        class="field-note"
+                    >
+                        Your email is used for
+                        account login.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="actions">
+
+                <button
+                    class="save"
+                    id="saveBtn"
+                    onclick="saveProfile()"
+                >
+                    Save Changes
+                </button>
+
+
+                <button
+                    class="cancel"
+                    onclick="resetProfile()"
+                >
+                    Cancel
+                </button>
+
+            </div>
+
+
+            <div
+                id="message"
+                class="message"
+            ></div>
+
+        </div>
+
+
+        <!-- =================================================
+             LEARNING STATISTICS
+             ================================================= -->
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Learning Statistics
+                    </h2>
+
+                    <div
+                        class="card-subtitle"
+                    >
+                        Your current preparation
+                        performance.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats">
+
+
+                <div class="stat">
+
+                    <div
+                        class="stat-top"
+                    >
+
+                        <span>
+                            Overall Accuracy
+                        </span>
+
+                        <div
+                            class="stat-icon"
+                        >
+                            🎯
+                        </div>
+
+                    </div>
+
+                    <strong>
+                        ${Math.round(
+                            overallAccuracy
+                        )}%
+                    </strong>
+
+                    <span>
+                        Across attempted questions
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <div
+                        class="stat-top"
+                    >
+
+                        <span>
+                            Quizzes
+                        </span>
+
+                        <div
+                            class="stat-icon"
+                        >
+                            📝
+                        </div>
+
+                    </div>
+
+                    <strong>
+                        ${totalQuizzes}
+                    </strong>
+
+                    <span>
+                        Completed
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <div
+                        class="stat-top"
+                    >
+
+                        <span>
+                            Total XP
+                        </span>
+
+                        <div
+                            class="stat-icon"
+                        >
+                            ⭐
+                        </div>
+
+                    </div>
+
+                    <strong>
+                        ${Number(
+                            student.xp || 0
+                        ).toLocaleString()}
+                    </strong>
+
+                    <span>
+                        Earned through learning
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <div
+                        class="stat-top"
+                    >
+
+                        <span>
+                            Current Streak
+                        </span>
+
+                        <div
+                            class="stat-icon"
+                        >
+                            🔥
+                        </div>
+
+                    </div>
+
+                    <strong>
+                        ${Number(
+                            student.streak || 0
+                        )}
+                    </strong>
+
+                    <span>
+                        Consecutive days
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             LEARNING FOCUS
+             ================================================= -->
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Your Learning Focus
+                    </h2>
+
+                    <div
+                        class="card-subtitle"
+                    >
+                        Based on your current
+                        subject-wise performance.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="focus-grid">
+
+
+                <div
+                    class="
+                        focus-card
+                        ${
+                            strongest
+                                ? "strong"
+                                : ""
+                        }
+                    "
+                >
+
+                    <div
+                        class="focus-label"
+                    >
+                        Strongest Area
+                    </div>
+
+
+                    <div
+                        class="focus-name"
+                    >
+
+                        ${
+                            strongest
+                                ? escapeHtml(
+                                    strongest.name
+                                )
+                                : "Not enough data"
+                        }
+
+                    </div>
+
+
+                    <div
+                        class="focus-score"
+                    >
+
+                        ${
+                            strongest
+                                ? `${strongest.accuracy}% accuracy`
+                                : "Complete quizzes to discover your strongest area."
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="
+                        focus-card
+                        ${
+                            weakest
+                                ? (
+                                    weakest.accuracy < 60
+                                        ? "weak"
+                                        : "improving"
+                                )
+                                : ""
+                        }
+                    "
+                >
+
+                    <div
+                        class="focus-label"
+                    >
+                        Needs Attention
+                    </div>
+
+
+                    <div
+                        class="focus-name"
+                    >
+
+                        ${
+                            weakest
+                                ? escapeHtml(
+                                    weakest.name
+                                )
+                                : "Not enough data"
+                        }
+
+                    </div>
+
+
+                    <div
+                        class="focus-score"
+                    >
+
+                        ${
+                            weakest
+                                ? `${weakest.accuracy}% accuracy`
+                                : "Complete quizzes to identify weak areas."
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="
+                        focus-card
+                        ${
+                            improving
+                                ? "improving"
+                                : ""
+                        }
+                    "
+                >
+
+                    <div
+                        class="focus-label"
+                    >
+                        Improving
+                    </div>
+
+
+                    <div
+                        class="focus-name"
+                    >
+
+                        ${
+                            improving
+                                ? escapeHtml(
+                                    improving.name
+                                )
+                                : "Keep Practicing"
+                        }
+
+                    </div>
+
+
+                    <div
+                        class="focus-score"
+                    >
+
+                        ${
+                            improving
+                                ? `${improving.accuracy}% accuracy`
+                                : "Your performance will appear here as you progress."
+                        }
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SUBJECT PERFORMANCE
+             ================================================= -->
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Subject Performance
+                    </h2>
+
+                    <div
+                        class="card-subtitle"
+                    >
+                        A breakdown of your progress
+                        across subjects.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="subject-list"
+            >
+
+                ${subjectsHTML}
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             ACCOUNT INFORMATION
+             ================================================= -->
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Account Information
+                    </h2>
+
+                    <div
+                        class="card-subtitle"
+                    >
+                        Details associated with your
+                        AdaptiveLearn account.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="account-grid">
+
+
+                <div
+                    class="account-item"
+                >
+
+                    <span>
+                        Student ID
+                    </span>
+
+                    <strong>
+                        #${escapeHtml(
+                            student.student_id
+                        )}
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="account-item"
+                >
+
+                    <span>
+                        Target Examination
+                    </span>
+
+                    <strong>
+                        ${escapeHtml(exam)}
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="account-item"
+                >
+
+                    <span>
+                        Account Created
+                    </span>
+
+                    <strong>
+                        ${formatDate(
+                            student.created_at
+                        )}
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="account-item"
+                >
+
+                    <span>
+                        Account Status
+                    </span>
+
+                    <strong>
+                        Active
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    `;
+
+}
+
+
+/* =========================================================
+   SAVE PROFILE
+   ========================================================= */
+
+async function saveProfile() {
+
+    const nameElement =
+        document.getElementById(
+            "name"
+        );
+
+
+    const emailElement =
+        document.getElementById(
+            "email"
+        );
+
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    const button =
+        document.getElementById(
+            "saveBtn"
+        );
+
+
+    if (
+        !nameElement ||
+        !emailElement ||
+        !message ||
+        !button
+    ) {
+
+        return;
+
+    }
+
+
+    const name =
+        nameElement.value.trim();
+
+
+    const email =
+        emailElement.value.trim();
+
+
+    if (!name || !email) {
+
+        message.textContent =
+            "Name and email are required.";
+
+        message.style.color =
+            "#dc2626";
+
+        return;
+
+    }
+
+
+    if (
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            .test(email)
+    ) {
+
+        message.textContent =
+            "Please enter a valid email address.";
+
+        message.style.color =
+            "#dc2626";
+
+        return;
+
+    }
+
+
+    button.disabled = true;
+
+    button.textContent =
+        "Saving...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_BASE_URL}/api/auth/profile`,
+                {
+                    method: "PUT",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json",
+
+                        "Authorization":
+                            `Bearer ${token}`,
+
+                        "Accept":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify({
+                            name,
+                            email
+                        })
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            response.status === 401 ||
+            response.status === 403
+        ) {
+
+            logoutAndLogin();
+
+            return;
+
+        }
+
+
+        if (
+            !response.ok ||
+            !data.success
+        ) {
+
+            throw new Error(
+                data.message ||
+                "Profile update failed."
+            );
+
+        }
+
+
+        /*
+         * Backend returns a new token
+         * after profile update.
+         */
+
+        if (data.token) {
+
+            localStorage.setItem(
+                "adaptiveLearnToken",
+                data.token
+            );
+
+        }
+
+
+        const storedUser =
+            JSON.parse(
+                localStorage.getItem(
+                    "adaptiveLearnUser"
+                ) || "{}"
+            );
+
+
+        localStorage.setItem(
+            "adaptiveLearnUser",
+
+            JSON.stringify({
+
+                ...storedUser,
+
+                student_id:
+                    data.student.student_id,
+
+                name:
+                    data.student.name,
+
+                email:
+                    data.student.email,
+
+                xp:
+                    Number(
+                        data.student.xp || 0
+                    ),
+
+                streak:
+                    Number(
+                        data.student.streak || 0
+                    )
+
+            })
+
+        );
+
+
+        originalName =
+            data.student.name;
+
+
+        originalEmail =
+            data.student.email;
+
+
+        currentStudent =
+            data.student;
+
+
+        message.textContent =
+            "Profile updated successfully.";
+
+        message.style.color =
+            "#16a34a";
+
+
+        /*
+         * Re-render the complete profile
+         * while keeping dashboard statistics.
+         */
+
+        renderProfile(
+            currentStudent,
+            dashboardInfo
+        );
+
+
+        /*
+         * Show success message again
+         * because renderProfile rebuilds
+         * the message element.
+         */
+
+        const newMessage =
+            document.getElementById(
+                "message"
+            );
+
+
+        if (newMessage) {
+
+            newMessage.textContent =
+                "Profile updated successfully.";
+
+            newMessage.style.color =
+                "#16a34a";
+
+        }
+
+
+    }
+    catch (error) {
+
+        console.error(
+            "Profile update error:",
+            error
+        );
+
+
+        const currentMessage =
+            document.getElementById(
+                "message"
+            );
+
+
+        if (currentMessage) {
+
+            currentMessage.textContent =
+                error.message ||
+                "Unable to update profile.";
+
+            currentMessage.style.color =
+                "#dc2626";
+
+        }
+
+    }
+    finally {
+
+        const currentButton =
+            document.getElementById(
+                "saveBtn"
+            );
+
+
+        if (currentButton) {
+
+            currentButton.disabled =
+                false;
+
+            currentButton.textContent =
+                "Save Changes";
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   RESET PROFILE FORM
+   ========================================================= */
+
+function resetProfile() {
+
+    const name =
+        document.getElementById(
+            "name"
+        );
+
+
+    const email =
+        document.getElementById(
+            "email"
+        );
+
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    if (name) {
+
+        name.value =
+            originalName;
+
+    }
+
+
+    if (email) {
+
+        email.value =
+            originalEmail;
+
+    }
+
+
+    if (message) {
+
+        message.textContent =
+            "";
+
+    }
+
+}
+
+
+/* =========================================================
+   AUTH FAILURE
+   ========================================================= */
+
+function logoutAndLogin() {
+
+    localStorage.removeItem(
+        "adaptiveLearnToken"
+    );
+
+    localStorage.removeItem(
+        "adaptiveLearnUser"
+    );
+
+    localStorage.removeItem(
+        "adaptiveLearnLoggedIn"
+    );
+
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+loadProfile();
+
+
+</script>
+<script src="js/profile-sync.js"></script>
+
+</body>
+
+</html>

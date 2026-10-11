@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mock Test Result - AdaptiveLearn</title>
+
+    <link rel="stylesheet" href="css/mock-test-result.css">
+    <link rel="stylesheet" href="css/app-theme.css">
+
+</head>
+
+<body>
+
+    <div class="result-container">
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <header class="result-header">
+
+            <div class="header-icon">
+                🏆
+            </div>
+
+            <h1>Mock Test Completed!</h1>
+
+            <p>Your complete mock test performance analysis</p>
+
+            <div class="exam-badge">
+
+                <span>Exam:</span>
+
+                <strong id="examName">
+                    ESIC UDC
+                </strong>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             SCORE OVERVIEW
+        ========================== -->
+
+        <section class="score-section">
+
+            <div class="score-circle">
+
+                <div class="score-value" id="score">
+                    0%
+                </div>
+
+                <div class="score-label">
+                    Score
+                </div>
+
+            </div>
+
+
+            <div class="score-content">
+
+                <h2 id="resultTitle">
+                    Keep Practicing!
+                </h2>
+
+                <p id="resultMessage">
+                    Your mock test performance will appear here.
+                </p>
+
+                <div class="target-badge">
+                    Target Accuracy: 70%
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             STATISTICS
+        ========================== -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📝
+                </div>
+
+                <div class="stat-value" id="totalQuestions">
+                    0
+                </div>
+
+                <div class="stat-label">
+                    Total Questions
+                </div>
+
+            </div>
+
+
+            <div class="stat-card correct-card">
+
+                <div class="stat-icon">
+                    ✅
+                </div>
+
+                <div class="stat-value" id="correctAnswers">
+                    0
+                </div>
+
+                <div class="stat-label">
+                    Correct
+                </div>
+
+            </div>
+
+
+            <div class="stat-card wrong-card">
+
+                <div class="stat-icon">
+                    ❌
+                </div>
+
+                <div class="stat-value" id="wrongAnswers">
+                    0
+                </div>
+
+                <div class="stat-label">
+                    Incorrect
+                </div>
+
+            </div>
+
+
+            <div class="stat-card unanswered-card">
+
+                <div class="stat-icon">
+                    ⭕
+                </div>
+
+                <div class="stat-value" id="unansweredAnswers">
+                    0
+                </div>
+
+                <div class="stat-label">
+                    Unanswered
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TIME
+        ========================== -->
+
+        <section class="time-section">
+
+            <div class="time-item">
+
+                <span class="time-icon">
+                    ⏱
+                </span>
+
+                <div>
+
+                    <span class="time-label">
+                        Time Taken
+                    </span>
+
+                    <strong id="timeTaken">
+                        00:00
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="time-item">
+
+                <span class="time-icon">
+                    🎯
+                </span>
+
+                <div>
+
+                    <span class="time-label">
+                        Accuracy
+                    </span>
+
+                    <strong id="accuracy">
+                        0%
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PERFORMANCE ANALYSIS
+        ========================== -->
+
+        <section class="card">
+
+            <div class="section-heading">
+
+                <span class="section-icon">
+                    📊
+                </span>
+
+                <h2>
+                    Overall Performance
+                </h2>
+
+            </div>
+
+
+            <div class="progress-info">
+
+                <span>
+                    Performance
+                </span>
+
+                <strong id="performancePercent">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+
+            </div>
+
+
+            <div
+                class="performance-message"
+                id="performanceMessage">
+
+                Performance analysis will appear here.
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SUBJECT PERFORMANCE
+        ========================== -->
+
+        <section class="card">
+
+            <div class="section-heading">
+
+                <span class="section-icon">
+                    📚
+                </span>
+
+                <h2>
+                    Subject-wise Performance
+                </h2>
+
+            </div>
+
+
+            <div
+                class="subject-performance"
+                id="subjectPerformance">
+
+                <!-- Generated by JavaScript -->
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ADAPTIVE RECOMMENDATION
+        ========================== -->
+
+        <section class="recommendation-card">
+
+            <div class="section-heading">
+
+                <span class="section-icon">
+                    🧠
+                </span>
+
+                <h2>
+                    Adaptive Learning Recommendation
+                </h2>
+
+            </div>
+
+
+            <p id="recommendationText">
+
+                Your personalized recommendation will appear here.
+
+            </p>
+
+
+            <div class="next-step">
+
+                <strong>
+                    Recommended Next Step
+                </strong>
+
+                <span id="nextStep">
+                    Review your weak subjects and practice again.
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FOCUS AREAS
+        ========================== -->
+
+        <section class="focus-card">
+
+            <div class="section-heading">
+
+                <span class="section-icon">
+                    📌
+                </span>
+
+                <h2>
+                    Focus Areas
+                </h2>
+
+            </div>
+
+
+            <div id="focusAreas">
+
+                <!-- Generated by JavaScript -->
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DETAILED REVIEW
+        ========================== -->
+
+        <section class="card review-section">
+
+            <div class="section-heading">
+
+                <span class="section-icon">
+                    📝
+                </span>
+
+                <h2>
+                    Detailed Answer Review
+                </h2>
+
+            </div>
+
+
+            <p class="review-intro">
+                Review your answers, correct answers, and explanations
+                to understand where you can improve.
+            </p>
+
+
+            <div id="reviewContainer">
+
+                <!-- Questions generated by JavaScript -->
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ACTION BUTTONS
+        ========================== -->
+
+        <section class="result-actions">
+
+            <a
+                href="dashboard.html"
+                class="result-btn secondary-btn">
+
+                ← Back to Dashboard
+
+            </a>
+
+
+            <a
+                href="mock-test.html"
+                class="result-btn primary-btn">
+
+                Take Another Mock Test →
+
+            </a>
+
+        </section>
+
+    </div>
+
+
+    <script src="js/mock-test-result.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Performance Overview - AdaptiveLearn</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/app-theme.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7fb;
+            color: #111827;
+            font-family: Inter, Arial, sans-serif;
+        }
+
+        .performance-page {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 36px 30px 60px;
+        }
+
+        /* HEADER */
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header-label {
+            color: #4f46e5;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+            margin-bottom: 7px;
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .page-header p {
+            margin: 8px 0 0;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .back-button {
+            text-decoration: none;
+            background: #ffffff;
+            color: #4f46e5;
+            border: 1px solid #e5e7eb;
+            padding: 11px 18px;
+            border-radius: 10px;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: .2s;
+        }
+
+        .back-button:hover {
+            background: #f3f4ff;
+            transform: translateY(-1px);
+        }
+
+        /* STAT CARDS */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .stat-card {
+            background: #ffffff;
+            border-radius: 17px;
+            padding: 21px;
+            box-shadow: 0 7px 24px rgba(15, 23, 42, .06);
+            border: 1px solid #eef0f5;
+        }
+
+        .stat-label {
+            color: #6b7280;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            color: #4f46e5;
+            font-size: 28px;
+            font-weight: 800;
+            margin-top: 9px;
+        }
+
+        .stat-description {
+            color: #9ca3af;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        /* MAIN GRID */
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1.45fr .85fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 7px 24px rgba(15, 23, 42, .06);
+            border: 1px solid #eef0f5;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 19px;
+            color: #111827;
+        }
+
+        .card-header p {
+            margin: 6px 0 0;
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+        /* OVERALL PERFORMANCE */
+
+        .overall-score {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            margin-bottom: 25px;
+        }
+
+        .score-circle {
+            width: 108px;
+            height: 108px;
+            min-width: 108px;
+            border-radius: 50%;
+            background: #eef2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .score-circle::after {
+            content: "";
+            position: absolute;
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            background: #ffffff;
+        }
+
+        .score-number {
+            position: relative;
+            z-index: 2;
+            font-size: 25px;
+            font-weight: 800;
+            color: #4f46e5;
+        }
+
+        .score-info h3 {
+            margin: 0 0 7px;
+            font-size: 17px;
+        }
+
+        .score-info p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .overall-progress {
+            margin-top: 20px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .progress-track {
+            height: 10px;
+            background: #edf0f5;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 10px;
+            background: #6366f1;
+            transition: width .5s ease;
+        }
+
+        /* INSIGHTS */
+
+        .insight-list {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .insight {
+            padding: 15px;
+            border-radius: 12px;
+            background: #f8f9fc;
+            border: 1px solid #edf0f5;
+        }
+
+        .insight-title {
+            font-size: 12px;
+            font-weight: 800;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 5px;
+        }
+
+        .insight-value {
+            font-size: 15px;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .insight-text {
+            margin-top: 5px;
+            color: #6b7280;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        /* SUBJECT PERFORMANCE */
+
+        .subject-list {
+            display: flex;
+            flex-direction: column;
+            gap: 17px;
+        }
+
+        .subject-row {
+            padding-bottom: 16px;
+            border-bottom: 1px solid #eef0f5;
+        }
+
+        .subject-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .subject-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 8px;
+        }
+
+        .subject-name {
+            font-weight: 750;
+            font-size: 14px;
+        }
+
+        .subject-score {
+            font-size: 13px;
+            font-weight: 800;
+            color: #4f46e5;
+        }
+
+        .subject-meta {
+            font-size: 11px;
+            color: #9ca3af;
+            margin-top: 6px;
+        }
+
+        .subject-track {
+            height: 8px;
+            background: #edf0f5;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .subject-fill {
+            height: 100%;
+            border-radius: 10px;
+            background: #6366f1;
+        }
+
+        /* TOPIC PERFORMANCE */
+
+        .topic-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .topic-item {
+            padding: 19px 0;
+            border-bottom: 1px solid #eef0f5;
+        }
+
+        .topic-item:first-child {
+            padding-top: 5px;
+        }
+
+        .topic-item:last-child {
+            border-bottom: none;
+        }
+
+        .topic-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .topic-name {
+            font-size: 14px;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .topic-subject {
+            font-size: 11px;
+            color: #9ca3af;
+            margin-top: 4px;
+        }
+
+        .topic-right {
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .topic-score {
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .topic-status {
+            display: inline-block;
+            margin-top: 4px;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 20px;
+        }
+
+        .status-weak {
+            color: #b91c1c;
+            background: #fee2e2;
+        }
+
+        .status-improving {
+            color: #a16207;
+            background: #fef3c7;
+        }
+
+        .status-strong {
+            color: #15803d;
+            background: #dcfce7;
+        }
+
+        .topic-progress {
+            margin-top: 10px;
+            height: 7px;
+            background: #edf0f5;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .topic-progress span {
+            display: block;
+            height: 100%;
+            border-radius: 10px;
+            background: #6366f1;
+        }
+
+        .topic-details {
+            margin-top: 7px;
+            color: #9ca3af;
+            font-size: 11px;
+        }
+
+        /* EMPTY / LOADING */
+
+        .loading,
+        .empty,
+        .error {
+            text-align: center;
+            padding: 55px 20px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .error {
+            color: #b91c1c;
+        }
+
+        .retry-button {
+            margin-top: 15px;
+            border: none;
+            background: #4f46e5;
+            color: white;
+            padding: 10px 17px;
+            border-radius: 9px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1100px) {
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 850px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .performance-page {
+                padding: 24px 15px 45px;
+            }
+
+            .page-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .page-header h1 {
+                font-size: 27px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .overall-score {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .topic-heading {
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="performance-page">
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <div>
+            <div class="header-label">PROGRESS ANALYSIS</div>
+            <h1>Performance Overview</h1>
+            <p>Understand your learning performance and identify where to focus next.</p>
+        </div>
+
+        <a href="dashboard.html" class="back-button">
+            ← Back to Dashboard
+        </a>
+    </header>
+
+    <!-- CONTENT -->
+    <main id="performanceContent">
+        <div class="loading">
+            Loading your performance...
+        </div>
+    </main>
+
+</div>
+
+<script>
+    const API_BASE = "http://localhost:5000";
+    const token = localStorage.getItem("adaptiveLearnToken");
+    const content = document.getElementById("performanceContent");
+
+    function escapeHTML(value) {
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function clamp(value) {
+        return Math.max(0, Math.min(100, Number(value) || 0));
+    }
+
+    function rounded(value) {
+        return Math.round(Number(value) || 0);
+    }
+
+    function getStatus(accuracy) {
+        const score = Number(accuracy) || 0;
+
+        if (score < 60) {
+            return {
+                label: "Weak",
+                className: "status-weak"
+            };
+        }
+
+        if (score < 70) {
+            return {
+                label: "Improving",
+                className: "status-improving"
+            };
+        }
+
+        return {
+            label: "Strong",
+            className: "status-strong"
+        };
+    }
+
+    function getStatusMessage(accuracy) {
+        const score = Number(accuracy) || 0;
+
+        if (score < 60) {
+            return "This area needs focused practice.";
+        }
+
+        if (score < 70) {
+            return "You are improving. Keep practicing.";
+        }
+
+        return "You are performing strongly in this area.";
+    }
+
+    function calculateOverallAccuracy(quizStats, progressRows) {
+
+        /*
+         * Prefer actual question-level totals when available.
+         * This avoids giving every topic equal weight.
+         */
+        const attempted = Number(quizStats.questions_attempted || 0);
+        const correct = Number(quizStats.questions_correct || 0);
+
+        if (attempted > 0) {
+            return Math.round((correct / attempted) * 100);
+        }
+
+        /*
+         * If question totals are unavailable, use topic progress.
+         */
+        if (progressRows.length > 0) {
+
+            let totalAttempted = 0;
+            let totalCorrect = 0;
+
+            progressRows.forEach(row => {
+                totalAttempted += Number(row.questions_attempted || 0);
+                totalCorrect += Number(row.questions_correct || 0);
+            });
+
+            if (totalAttempted > 0) {
+                return Math.round((totalCorrect / totalAttempted) * 100);
+            }
+
+            const validAccuracy = progressRows
+                .map(row => Number(row.accuracy))
+                .filter(value => !Number.isNaN(value));
+
+            if (validAccuracy.length > 0) {
+                return Math.round(
+                    validAccuracy.reduce((sum, value) => sum + value, 0)
+                    / validAccuracy.length
+                );
+            }
+        }
+
+        return rounded(quizStats.average_score || 0);
+    }
+
+    function groupSubjects(progressRows) {
+
+        const groups = {};
+
+        progressRows.forEach(row => {
+
+            const subject = row.subject_name || "Other";
+
+            if (!groups[subject]) {
+                groups[subject] = {
+                    name: subject,
+                    attempted: 0,
+                    correct: 0,
+                    topics: 0
+                };
+            }
+
+            groups[subject].attempted += Number(
+                row.questions_attempted || 0
+            );
+
+            groups[subject].correct += Number(
+                row.questions_correct || 0
+            );
+
+            groups[subject].topics++;
+        });
+
+        return Object.values(groups)
+            .map(subject => {
+
+                let accuracy = 0;
+
+                if (subject.attempted > 0) {
+                    accuracy = Math.round(
+                        (subject.correct / subject.attempted) * 100
+                    );
+                }
+
+                return {
+                    ...subject,
+                    accuracy
+                };
+            })
+            .sort((a, b) => a.accuracy - b.accuracy);
+    }
+
+    function renderStatCards(quizStats, overallAccuracy) {
+
+        const averageScore = rounded(
+            quizStats.average_score || 0
+        );
+
+        const quizzes = Number(
+            quizStats.total_quizzes || 0
+        );
+
+        const attempted = Number(
+            quizStats.questions_attempted || 0
+        );
+
+        const correct = Number(
+            quizStats.questions_correct || 0
+        );
+
+        return `
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-label">Average Quiz Score</div>
+                    <div class="stat-value">${averageScore}%</div>
+                    <div class="stat-description">
+                        Average performance across quizzes
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Quizzes Completed</div>
+                    <div class="stat-value">${quizzes}</div>
+                    <div class="stat-description">
+                        Completed assessment attempts
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Questions Attempted</div>
+                    <div class="stat-value">${attempted}</div>
+                    <div class="stat-description">
+                        Questions answered
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Correct Answers</div>
+                    <div class="stat-value">${correct}</div>
+                    <div class="stat-description">
+                        Correctly answered questions
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Overall Accuracy</div>
+                    <div class="stat-value">${overallAccuracy}%</div>
+                    <div class="stat-description">
+                        Overall question accuracy
+                    </div>
+                </div>
+
+            </div>
+        `;
+    }
+
+    function renderOverallCard(overallAccuracy) {
+
+        let heading = "Keep building your performance.";
+        let description =
+            "Complete more quizzes so the adaptive system can understand your strengths and weak areas more accurately.";
+
+        if (overallAccuracy >= 70) {
+            heading = "Great performance!";
+            description =
+                "Your current accuracy is strong. Continue practicing consistently while maintaining your weaker topics.";
+        }
+        else if (overallAccuracy >= 60) {
+            heading = "You're improving!";
+            description =
+                "Your performance is developing. Focus on topics below 70% to move them into the strong range.";
+        }
+        else if (overallAccuracy > 0) {
+            heading = "More focused practice is needed.";
+            description =
+                "Use your weak-topic analysis and adaptive practice to improve the areas where your accuracy is lowest.";
+        }
+
+        return `
+            <div class="card">
+
+                <div class="card-header">
+                    <div>
+                        <h2>Overall Performance</h2>
+                        <p>Your current learning accuracy</p>
+                    </div>
+                </div>
+
+                <div class="overall-score">
+
+                    <div class="score-circle">
+                        <div class="score-number">
+                            ${overallAccuracy}%
+                        </div>
+                    </div>
+
+                    <div class="score-info">
+                        <h3>${heading}</h3>
+                        <p>${description}</p>
+                    </div>
+
+                </div>
+
+                <div class="overall-progress">
+
+                    <div class="progress-header">
+                        <span>Overall Accuracy</span>
+                        <span>${overallAccuracy}%</span>
+                    </div>
+
+                    <div class="progress-track">
+                        <div
+                            class="progress-fill"
+                            style="width:${clamp(overallAccuracy)}%"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+    }
+
+    function renderInsights(topicRows, subjectRows) {
+
+        if (!topicRows.length) {
+
+            return `
+                <div class="card">
+
+                    <div class="card-header">
+                        <div>
+                            <h2>Performance Insights</h2>
+                            <p>Personalized observations</p>
+                        </div>
+                    </div>
+
+                    <div class="empty">
+                        Complete your first quiz to generate personalized performance insights.
+                    </div>
+
+                </div>
+            `;
+        }
+
+        const weakest = topicRows[0];
+
+        const strongest = [...topicRows]
+            .sort(
+                (a, b) =>
+                    Number(b.accuracy || 0) -
+                    Number(a.accuracy || 0)
+            )[0];
+
+        const improving = topicRows.filter(row => {
+            const accuracy = Number(row.accuracy || 0);
+            return accuracy >= 60 && accuracy < 70;
+        });
+
+        return `
+            <div class="card">
+
+                <div class="card-header">
+                    <div>
+                        <h2>Performance Insights</h2>
+                        <p>Based on your actual quiz progress</p>
+                    </div>
+                </div>
+
+                <div class="insight-list">
+
+                    <div class="insight">
+                        <div class="insight-title">
+                            Priority Area
+                        </div>
+
+                        <div class="insight-value">
+                            ${escapeHTML(weakest.topic_name || "Not available")}
+                        </div>
+
+                        <div class="insight-text">
+                            ${rounded(weakest.accuracy)}% accuracy.
+                            This is currently your weakest tracked topic.
+                        </div>
+                    </div>
+
+                    <div class="insight">
+                        <div class="insight-title">
+                            Strongest Area
+                        </div>
+
+                        <div class="insight-value">
+                            ${escapeHTML(strongest.topic_name || "Not available")}
+                        </div>
+
+                        <div class="insight-text">
+                            ${rounded(strongest.accuracy)}% accuracy.
+                            Keep maintaining this performance.
+                        </div>
+                    </div>
+
+                    <div class="insight">
+                        <div class="insight-title">
+                            Improvement Areas
+                        </div>
+
+                        <div class="insight-value">
+                            ${improving.length}
+                            topic${improving.length === 1 ? "" : "s"}
+                        </div>
+
+                        <div class="insight-text">
+                            Topics between 60% and 69% are currently classified as improving.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+    }
+
+    function renderSubjects(subjectRows) {
+
+        if (!subjectRows.length) {
+
+            return `
+                <div class="card">
+
+                    <div class="card-header">
+                        <div>
+                            <h2>Subject Performance</h2>
+                            <p>Performance by subject</p>
+                        </div>
+                    </div>
+
+                    <div class="empty">
+                        No subject performance is available yet.
+                    </div>
+
+                </div>
+            `;
+        }
+
+        return `
+            <div class="card">
+
+                <div class="card-header">
+                    <div>
+                        <h2>Subject Performance</h2>
+                        <p>See which subjects need the most attention</p>
+                    </div>
+                </div>
+
+                <div class="subject-list">
+
+                    ${subjectRows.map(subject => {
+
+                        const status = getStatus(subject.accuracy);
+
+                        return `
+                            <div class="subject-row">
+
+                                <div class="subject-top">
+
+                                    <div class="subject-name">
+                                        ${escapeHTML(subject.name)}
+                                    </div>
+
+                                    <div class="subject-score">
+                                        ${subject.accuracy}%
+                                    </div>
+
+                                </div>
+
+                                <div class="subject-track">
+                                    <div
+                                        class="subject-fill"
+                                        style="width:${clamp(subject.accuracy)}%"
+                                    ></div>
+                                </div>
+
+                                <div class="subject-meta">
+                                    ${subject.topics} topic${subject.topics === 1 ? "" : "s"}
+                                    • ${subject.attempted} questions attempted
+                                    • ${status.label}
+                                </div>
+
+                            </div>
+                        `;
+
+                    }).join("")}
+
+                </div>
+
+            </div>
+        `;
+    }
+
+    function renderTopics(topicRows) {
+
+        if (!topicRows.length) {
+
+            return `
+                <div class="card">
+
+                    <div class="card-header">
+                        <div>
+                            <h2>Topic-wise Performance</h2>
+                            <p>Your detailed topic progress</p>
+                        </div>
+                    </div>
+
+                    <div class="empty">
+                        No topic performance is available yet.
+                        Complete a quiz to build your performance profile.
+                    </div>
+
+                </div>
+            `;
+        }
+
+        const sortedTopics = [...topicRows]
+            .sort(
+                (a, b) =>
+                    Number(a.accuracy || 0) -
+                    Number(b.accuracy || 0)
+            );
+
+        return `
+            <div class="card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Topic-wise Performance</h2>
+                        <p>Topics are shown from weakest to strongest</p>
+                    </div>
+
+                </div>
+
+                <div class="topic-list">
+
+                    ${sortedTopics.map(topic => {
+
+                        const accuracy = rounded(topic.accuracy);
+                        const status = getStatus(accuracy);
+
+                        const attempted =
+                            Number(topic.questions_attempted || 0);
+
+                        const correct =
+                            Number(topic.questions_correct || 0);
+
+                        return `
+                            <div class="topic-item">
+
+                                <div class="topic-heading">
+
+                                    <div>
+
+                                        <div class="topic-name">
+                                            ${escapeHTML(
+                                                topic.topic_name || "Topic"
+                                            )}
+                                        </div>
+
+                                        <div class="topic-subject">
+                                            ${escapeHTML(
+                                                topic.subject_name || "Subject"
+                                            )}
+                                        </div>
+
+                                    </div>
+
+                                    <div class="topic-right">
+
+                                        <div class="topic-score">
+                                            ${accuracy}%
+                                        </div>
+
+                                        <span class="topic-status ${status.className}">
+                                            ${status.label}
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="topic-progress">
+
+                                    <span
+                                        style="width:${clamp(accuracy)}%"
+                                    ></span>
+
+                                </div>
+
+                                <div class="topic-details">
+
+                                    ${correct} correct
+                                    out of ${attempted} attempted
+
+                                    • ${getStatusMessage(accuracy)}
+
+                                </div>
+
+                            </div>
+                        `;
+
+                    }).join("")}
+
+                </div>
+
+            </div>
+        `;
+    }
+
+    async function loadPerformance() {
+
+        if (!token) {
+            window.location.href = "login.html";
+            return;
+        }
+
+        try {
+
+            const response = await fetch(
+                `${API_BASE}/api/dashboard/`,
+                {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Accept": "application/json"
+                    }
+                }
+            );
+
+            if (response.status === 401 || response.status === 403) {
+                localStorage.removeItem("adaptiveLearnToken");
+                localStorage.removeItem("adaptiveLearnUser");
+                window.location.href = "login.html";
+                return;
+            }
+
+            const data = await response.json();
+
+            if (!response.ok || !data.success) {
+                throw new Error(
+                    data.message || "Unable to load performance"
+                );
+            }
+
+            const dashboard = data.dashboard || {};
+
+            const quizStats = dashboard.quiz_stats || {};
+
+            const progressRows = Array.isArray(
+                dashboard.progress
+            )
+                ? dashboard.progress
+                : [];
+
+            const overallAccuracy =
+                calculateOverallAccuracy(
+                    quizStats,
+                    progressRows
+                );
+
+            const subjectRows =
+                groupSubjects(progressRows);
+
+            content.innerHTML = `
+
+                ${renderStatCards(
+                    quizStats,
+                    overallAccuracy
+                )}
+
+                <div class="main-grid">
+
+                    ${renderOverallCard(
+                        overallAccuracy
+                    )}
+
+                    ${renderInsights(
+                        progressRows,
+                        subjectRows
+                    )}
+
+                </div>
+
+                ${renderSubjects(
+                    subjectRows
+                )}
+
+                <div style="height:20px;"></div>
+
+                ${renderTopics(
+                    progressRows
+                )}
+
+            `;
+
+        } catch (error) {
+
+            console.error(
+                "Performance loading error:",
+                error
+            );
+
+            content.innerHTML = `
+                <div class="card">
+
+                    <div class="error">
+                        <strong>
+                            Unable to load Performance Overview
+                        </strong>
+
+                        <div style="margin-top:8px;">
+                            Please make sure the backend server is running
+                            and try again.
+                        </div>
+
+                        <button
+                            class="retry-button"
+                            onclick="loadPerformance()"
+                        >
+                            Retry
+                        </button>
+                    </div>
+
+                </div>
+            `;
+        }
+    }
+
+    loadPerformance();
+</script>
+<script src="js/profile-sync.js"></script>
+
+</body>
+</html>

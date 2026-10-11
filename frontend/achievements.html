@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Achievements - AdaptiveLearn</title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/app-theme.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           ACHIEVEMENTS ONLY
+           Uses the SAME foundation as dashboard
+           ===================================================== */
+
+        .achievements-content {
+            padding-bottom: 40px;
+        }
+
+
+        /* HEADER */
+
+        .achievement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .achievement-header h1 {
+            margin: 0 0 6px;
+            font-size: 29px;
+            color: var(--al-text);
+            line-height: 1.25;
+        }
+
+        .achievement-header .subtitle {
+            margin: 0;
+        }
+
+        .student-profile {
+            background: #ffffff;
+            border: 1px solid var(--al-border);
+            border-radius: 25px;
+            padding: 10px 18px;
+            color: var(--al-text);
+            font-size: 14px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+
+        /* =====================================================
+           STAT CARDS
+           ===================================================== */
+
+        .achievement-stats {
+            display: grid;
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .achievement-stat {
+            background: var(--al-card);
+            border: 1px solid var(--al-border);
+            border-radius: 16px;
+            padding: 21px;
+            min-height: 108px;
+
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            box-shadow: var(--al-shadow);
+        }
+
+        .achievement-stat-icon {
+            width: 54px;
+            height: 54px;
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+            background: var(--al-purple-light);
+
+            font-size: 27px;
+        }
+
+        .achievement-stat-info {
+            min-width: 0;
+        }
+
+        .achievement-stat-info strong {
+            display: block;
+            color: var(--al-text);
+            font-size: 25px;
+            line-height: 1.1;
+            margin-bottom: 5px;
+        }
+
+        .achievement-stat-info span {
+            color: var(--al-text-soft);
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .achievement-hero {
+            min-height: 145px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 34px;
+            padding: 28px 32px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #312e81,
+                    #4338ca
+                );
+
+            color: #ffffff;
+        }
+
+        .achievement-hero-label {
+            color: #c7d2fe;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+            margin-bottom: 6px;
+        }
+
+        .achievement-hero h2 {
+            margin: 0 0 7px;
+            font-size: 25px;
+            line-height: 1.25;
+        }
+
+        .achievement-hero p {
+            margin: 0;
+            color: #e0e7ff;
+            font-size: 14px;
+        }
+
+        .achievement-hero-icon {
+            width: 85px;
+            height: 85px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            font-size: 54px;
+        }
+
+
+        /* =====================================================
+           SECTION HEADER
+           ===================================================== */
+
+        .achievement-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            gap: 20px;
+
+            margin-bottom: 18px;
+        }
+
+        .achievement-section-header h2 {
+            margin: 0;
+            color: var(--al-text);
+            font-size: 25px;
+        }
+
+        .refresh-achievements {
+            border: none;
+            background: var(--al-purple);
+            color: #ffffff;
+
+            padding: 10px 17px;
+            border-radius: 9px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .refresh-achievements:hover {
+            background: var(--al-purple-dark);
+        }
+
+
+        /* =====================================================
+           BADGES
+           ===================================================== */
+
+        .achievement-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 18px;
+        }
+
+        .achievement-card {
+            background: var(--al-card);
+            border: 1px solid var(--al-border);
+            border-radius: 16px;
+
+            padding: 23px;
+
+            min-width: 0;
+
+            box-shadow: var(--al-shadow);
+
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--al-shadow-hover);
+        }
+
+        .achievement-card.locked {
+            opacity: .72;
+        }
+
+        .achievement-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .achievement-icon {
+            width: 62px;
+            height: 62px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border-radius: 15px;
+
+            background: var(--al-purple-light);
+
+            font-size: 31px;
+        }
+
+        .achievement-card.earned .achievement-icon {
+            background: var(--al-yellow-soft);
+        }
+
+        .achievement-status {
+            flex-shrink: 0;
+
+            color: var(--al-muted);
+
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .7px;
+        }
+
+        .achievement-card.earned .achievement-status {
+            color: var(--al-yellow);
+        }
+
+        .achievement-card h3 {
+            margin: 17px 0 7px;
+
+            color: var(--al-text);
+
+            font-size: 19px;
+            line-height: 1.25;
+        }
+
+        .achievement-card p {
+            margin: 0 0 18px;
+
+            min-height: 42px;
+
+            color: var(--al-text-soft);
+
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           PROGRESS
+           ===================================================== */
+
+        .achievement-progress-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 8px;
+
+            color: var(--al-muted);
+
+            font-size: 12px;
+        }
+
+        .achievement-progress-row strong {
+            color: var(--al-purple);
+            flex-shrink: 0;
+        }
+
+        .achievement-progress {
+            width: 100%;
+            height: 7px;
+
+            overflow: hidden;
+
+            border-radius: 10px;
+
+            background: #eef0f5;
+        }
+
+        .achievement-progress-bar {
+            display: block;
+
+            height: 100%;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    #6366f1,
+                    #8b5cf6
+                );
+
+            transition: width .5s ease;
+        }
+
+        .achievement-card.earned
+        .achievement-progress-bar {
+            background: var(--al-yellow);
+        }
+
+        .earned-date {
+            margin-top: 11px;
+
+            color: var(--al-yellow);
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           LOADING / ERROR
+           ===================================================== */
+
+        .achievement-loading,
+        .achievement-error {
+            grid-column: 1 / -1;
+
+            padding: 45px 25px;
+
+            background: #ffffff;
+
+            border: 1px solid var(--al-border);
+            border-radius: 16px;
+
+            text-align: center;
+        }
+
+        .achievement-loading {
+            color: var(--al-text-soft);
+        }
+
+        .achievement-error {
+            color: var(--al-red);
+        }
+
+        .achievement-error strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .achievement-error p {
+            margin: 0 0 15px;
+            font-size: 13px;
+        }
+
+        .achievement-error button {
+            border: none;
+
+            padding: 10px 17px;
+
+            border-radius: 8px;
+
+            background: var(--al-purple);
+
+            color: #ffffff;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 1100px) {
+
+            .achievement-stats {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .achievement-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .achievement-header {
+                align-items: flex-start;
+            }
+
+            .student-profile {
+                display: none;
+            }
+
+            .achievement-hero {
+                padding: 24px;
+            }
+
+            .achievement-hero-icon {
+                width: 60px;
+                font-size: 40px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard-wrapper">
+
+
+    <!-- =====================================================
+         EXACT SAME SIDEBAR AS DASHBOARD
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            Adaptive<span>Learn</span>
+        </div>
+
+
+        <p class="menu-title">
+            MAIN MENU
+        </p>
+
+
+        <a
+            href="dashboard.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">🏠</span>
+            <span>Dashboard</span>
+        </a>
+
+
+        <a
+            href="exams.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">📚</span>
+            <span>My Exams</span>
+        </a>
+
+
+        <a
+            href="exams.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">📝</span>
+            <span>Practice</span>
+        </a>
+
+
+        <a
+            href="mock-test.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">🧪</span>
+            <span>Mock Test</span>
+        </a>
+
+
+        <a
+            href="study-plan.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">📅</span>
+            <span>Study Plan</span>
+        </a>
+
+
+        <a
+            href="daily-challenge.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">🎯</span>
+            <span>Daily Challenge</span>
+        </a>
+
+
+        <p class="menu-title track-title">
+            TRACK
+        </p>
+
+
+        <a
+            href="dashboard.html#weakAreas"
+            class="menu-item"
+        >
+            <span class="menu-icon">📊</span>
+            <span>Progress</span>
+        </a>
+
+
+        <a
+            href="achievements.html"
+            class="menu-item active"
+        >
+            <span class="menu-icon">🏆</span>
+            <span>Achievements</span>
+        </a>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="#"
+                class="menu-item"
+                onclick="return false;"
+            >
+                <span class="menu-icon">⚙️</span>
+                <span>Settings</span>
+            </a>
+
+
+            <a
+                href="index.html"
+                class="menu-item"
+            >
+                <span class="menu-icon">↪️</span>
+                <span>Logout</span>
+            </a>
+
+
+            <div class="sidebar-promo">
+
+                <div class="promo-icon">
+                    🏆
+                </div>
+
+                <h3>
+                    Keep Learning,
+                    Keep Growing!
+                </h3>
+
+                <p>
+                    Stay consistent and
+                    achieve your goals.
+                </p>
+
+                <a
+                    href="achievements.html"
+                    class="promo-button"
+                >
+                    View Achievements →
+                </a>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content achievements-content">
+
+
+        <!-- HEADER -->
+
+        <header class="achievement-header">
+
+            <div>
+
+                <p class="welcome-label">
+                    YOUR PROGRESS
+                </p>
+
+                <h1>
+                    Achievements
+                </h1>
+
+                <p class="subtitle">
+                    Keep learning, complete challenges
+                    and unlock rewards.
+                </p>
+
+            </div>
+
+
+            <div
+                class="student-profile"
+                id="profileName"
+            >
+                Student
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             LIVE STATISTICS
+             ================================================= -->
+
+        <section class="achievement-stats">
+
+
+            <div class="achievement-stat">
+
+                <div class="achievement-stat-icon">
+                    ⭐
+                </div>
+
+                <div class="achievement-stat-info">
+
+                    <strong id="xp">
+                        0
+                    </strong>
+
+                    <span>
+                        Total XP
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="achievement-stat">
+
+                <div class="achievement-stat-icon">
+                    🔥
+                </div>
+
+                <div class="achievement-stat-info">
+
+                    <strong id="currentStreak">
+                        0 Days
+                    </strong>
+
+                    <span>
+                        Current Streak
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="achievement-stat">
+
+                <div class="achievement-stat-icon">
+                    🏅
+                </div>
+
+                <div class="achievement-stat-info">
+
+                    <strong id="longestStreak">
+                        0 Days
+                    </strong>
+
+                    <span>
+                        Longest Streak
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="achievement-stat">
+
+                <div class="achievement-stat-icon">
+                    📚
+                </div>
+
+                <div class="achievement-stat-info">
+
+                    <strong id="quizCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Quizzes Completed
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             HERO
+             ================================================= -->
+
+        <section class="achievement-hero">
+
+            <div>
+
+                <div class="achievement-hero-label">
+                    KEEP GOING
+                </div>
+
+                <h2>
+                    Build your learning streak 🚀
+                </h2>
+
+                <p id="nextMessage">
+                    Loading your next achievement...
+                </p>
+
+            </div>
+
+
+            <div class="achievement-hero-icon">
+                🏆
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ACHIEVEMENTS
+             ================================================= -->
+
+        <section>
+
+
+            <div class="achievement-section-header">
+
+                <div>
+
+                    <p class="welcome-label">
+                        MILESTONES
+                    </p>
+
+                    <h2>
+                        Your Achievements
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="refreshBtn"
+                    class="refresh-achievements"
+                >
+                    Refresh
+                </button>
+
+            </div>
+
+
+            <div
+                id="badgeGrid"
+                class="achievement-grid"
+            >
+
+                <div class="achievement-loading">
+                    Loading achievements...
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<script>
+
+"use strict";
+
+
+/* =========================================================
+   CONFIGURATION
+   ========================================================= */
+
+const API_BASE_URL =
+    "http://localhost:5000";
+
+const TOKEN_KEY =
+    "adaptiveLearnToken";
+
+const USER_KEY =
+    "adaptiveLearnUser";
+
+
+/* =========================================================
+   BADGE ICONS
+   ========================================================= */
+
+const BADGE_ICONS = {
+
+    "first step": "🌱",
+
+    "quiz starter": "📝",
+
+    "quick learner": "⚡",
+
+    "focused student": "🎯",
+
+    "knowledge builder": "🧠",
+
+    "consistency king": "🔥"
+
+};
+
+
+/* =========================================================
+   GET TOKEN
+   ========================================================= */
+
+function getToken() {
+
+    return localStorage.getItem(
+        TOKEN_KEY
+    );
+}
+
+
+/* =========================================================
+   GET STORED USER
+   ========================================================= */
+
+function getStoredUser() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(
+                USER_KEY
+            ) || "null"
+        );
+
+    } catch {
+
+        return null;
+    }
+}
+
+
+/* =========================================================
+   LOAD ACHIEVEMENTS
+   ========================================================= */
+
+async function loadAchievements() {
+
+    const token =
+        getToken();
+
+
+    if (!token) {
+
+        window.location.href =
+            "login.html";
+
+        return;
+    }
+
+
+    const badgeGrid =
+        document.getElementById(
+            "badgeGrid"
+        );
+
+
+    badgeGrid.innerHTML = `
+
+        <div class="achievement-loading">
+            Loading achievements...
+        </div>
+
+    `;
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_BASE_URL}/api/misc/badges`,
+                {
+                    method: "GET",
+
+                    headers: {
+                        "Authorization":
+                            `Bearer ${token}`,
+
+                        "Accept":
+                            "application/json"
+                    }
+                }
+            );
+
+
+        if (
+            response.status === 401 ||
+            response.status === 403
+        ) {
+
+            localStorage.removeItem(
+                TOKEN_KEY
+            );
+
+            localStorage.removeItem(
+                USER_KEY
+            );
+
+            window.location.href =
+                "login.html";
+
+            return;
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !response.ok ||
+            !data.success
+        ) {
+
+            throw new Error(
+                data.message ||
+                "Unable to load achievements."
+            );
+        }
+
+
+        renderAchievements(
+            data
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Achievements error:",
+            error
+        );
+
+
+        badgeGrid.innerHTML = `
+
+            <div class="achievement-error">
+
+                <strong>
+                    Unable to load achievements
+                </strong>
+
+                <p>
+                    ${escapeHTML(
+                        error.message
+                    )}
+                </p>
+
+                <button
+                    type="button"
+                    onclick="loadAchievements()"
+                >
+                    Try Again
+                </button>
+
+            </div>
+
+        `;
+    }
+}
+
+
+/* =========================================================
+   RENDER ACHIEVEMENTS
+   ========================================================= */
+
+function renderAchievements(data) {
+
+    const student =
+        data.student || {};
+
+
+    const badges =
+        Array.isArray(data.badges)
+            ? data.badges
+            : [];
+
+
+    /* ---------------------------------------------
+       STATISTICS
+       --------------------------------------------- */
+
+    const xp =
+        Number(
+            student.xp || 0
+        );
+
+
+    const currentStreak =
+        Number(
+            student.current_streak || 0
+        );
+
+
+    const longestStreak =
+        Number(
+            student.longest_streak || 0
+        );
+
+
+    const quizCount =
+        Number(
+            student.quiz_count || 0
+        );
+
+
+    document.getElementById(
+        "xp"
+    ).textContent =
+        xp.toLocaleString();
+
+
+    document.getElementById(
+        "currentStreak"
+    ).textContent =
+        `${currentStreak} ${
+            currentStreak === 1
+                ? "Day"
+                : "Days"
+        }`;
+
+
+    document.getElementById(
+        "longestStreak"
+    ).textContent =
+        `${longestStreak} ${
+            longestStreak === 1
+                ? "Day"
+                : "Days"
+        }`;
+
+
+    document.getElementById(
+        "quizCount"
+    ).textContent =
+        quizCount;
+
+
+    /* ---------------------------------------------
+       STUDENT NAME
+       --------------------------------------------- */
+
+    const storedUser =
+        getStoredUser();
+
+
+    const profileName =
+        document.getElementById(
+            "profileName"
+        );
+
+
+    if (
+        profileName &&
+        student.name
+    ) {
+
+        profileName.textContent =
+            student.name;
+
+    } else if (
+        profileName &&
+        storedUser &&
+        storedUser.name
+    ) {
+
+        profileName.textContent =
+            storedUser.name;
+    }
+
+
+    /* ---------------------------------------------
+       NEXT ACHIEVEMENT
+       --------------------------------------------- */
+
+    const nextMessage =
+        document.getElementById(
+            "nextMessage"
+        );
+
+
+    const lockedBadges =
+        badges
+            .filter(
+                badge =>
+                    !badge.earned
+            )
+            .sort(
+                (a, b) =>
+                    Number(
+                        b.progress || 0
+                    ) -
+                    Number(
+                        a.progress || 0
+                    )
+            );
+
+
+    if (
+        lockedBadges.length > 0
+    ) {
+
+        const next =
+            lockedBadges[0];
+
+
+        nextMessage.textContent =
+            `You're closest to "${next.badge_name}" — ${Number(next.progress || 0)}% complete.`;
+
+    } else {
+
+        nextMessage.textContent =
+            "Amazing! You have unlocked every available achievement.";
+    }
+
+
+    /* ---------------------------------------------
+       BADGES
+       --------------------------------------------- */
+
+    renderBadges(
+        badges,
+        data.earned_badges || []
+    );
+}
+
+
+/* =========================================================
+   RENDER BADGE CARDS
+   ========================================================= */
+
+function renderBadges(
+    badges,
+    earnedBadges
+) {
+
+    const badgeGrid =
+        document.getElementById(
+            "badgeGrid"
+        );
+
+
+    if (!badges.length) {
+
+        badgeGrid.innerHTML = `
+
+            <div class="achievement-loading">
+                No achievements available yet.
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    badgeGrid.innerHTML =
+        badges.map(
+            function (badge) {
+
+                const badgeName =
+                    String(
+                        badge.badge_name || ""
+                    )
+                    .trim()
+                    .toLowerCase();
+
+
+                const icon =
+                    BADGE_ICONS[
+                        badgeName
+                    ] || "🏆";
+
+
+                const earned =
+                    Boolean(
+                        badge.earned
+                    );
+
+
+                const progress =
+                    Math.max(
+                        0,
+                        Math.min(
+                            100,
+                            Number(
+                                badge.progress || 0
+                            )
+                        )
+                    );
+
+
+                const current =
+                    Number(
+                        badge.current || 0
+                    );
+
+
+                const target =
+                    Number(
+                        badge.target || 0
+                    );
+
+
+                const progressText =
+                    earned
+
+                        ? "Completed"
+
+                        : `${current} / ${target}`;
+
+
+                /* -------------------------------------
+                   EARNED DATE
+                   ------------------------------------- */
+
+                let earnedDate = "";
+
+
+                const earnedRecord =
+                    earnedBadges.find(
+                        function (item) {
+
+                            return (
+                                Number(
+                                    item.badge_id
+                                ) ===
+                                Number(
+                                    badge.badge_id
+                                )
+                            );
+                        }
+                    );
+
+
+                if (
+                    earned &&
+                    earnedRecord &&
+                    earnedRecord.earned_at
+                ) {
+
+                    earnedDate = `
+
+                        <div class="earned-date">
+                            ✓ Earned
+                            ${formatDate(
+                                earnedRecord.earned_at
+                            )}
+                        </div>
+
+                    `;
+                }
+
+
+                return `
+
+                    <article
+                        class="achievement-card ${
+                            earned
+                                ? "earned"
+                                : "locked"
+                        }"
+                    >
+
+
+                        <div
+                            class="achievement-card-top"
+                        >
+
+                            <div
+                                class="achievement-icon"
+                            >
+                                ${icon}
+                            </div>
+
+
+                            <span
+                                class="achievement-status"
+                            >
+                                ${
+                                    earned
+                                        ? "✓ EARNED"
+                                        : "LOCKED"
+                                }
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            ${escapeHTML(
+                                badge.badge_name
+                            )}
+                        </h3>
+
+
+                        <p>
+                            ${escapeHTML(
+                                badge.description || ""
+                            )}
+                        </p>
+
+
+                        <div
+                            class="achievement-progress-row"
+                        >
+
+                            <span>
+                                ${escapeHTML(
+                                    progressText
+                                )}
+                            </span>
+
+                            <strong>
+                                ${progress}%
+                            </strong>
+
+                        </div>
+
+
+                        <div
+                            class="achievement-progress"
+                        >
+
+                            <i
+                                class="achievement-progress-bar"
+                                style="
+                                    width:${progress}%
+                                "
+                            ></i>
+
+                        </div>
+
+
+                        ${earnedDate}
+
+
+                    </article>
+
+                `;
+            }
+        )
+        .join("");
+}
+
+
+/* =========================================================
+   DATE FORMAT
+   ========================================================= */
+
+function formatDate(value) {
+
+    const date =
+        new Date(value);
+
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+
+        return "";
+    }
+
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day: "numeric",
+            month: "short",
+            year: "numeric"
+        }
+    );
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+   ========================================================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+}
+
+
+/* =========================================================
+   REFRESH
+   ========================================================= */
+
+document
+    .getElementById(
+        "refreshBtn"
+    )
+    .addEventListener(
+        "click",
+        loadAchievements
+    );
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadAchievements
+);
+
+</script>
+
+
+</body>
+</html>

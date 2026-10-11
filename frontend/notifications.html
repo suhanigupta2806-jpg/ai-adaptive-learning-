@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notifications | Adaptive Learning</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #111827;
+            min-height: 100vh;
+        }
+
+        .page {
+            width: min(1180px, calc(100% - 48px));
+            margin: 0 auto;
+            padding: 34px 0 60px;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 38px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 9px 14px;
+            border-radius: 20px;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .3px;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: 38px;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        .back {
+            color: #4f46e5;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            padding-top: 10px;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        .notification-container {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 24px;
+            box-shadow: 0 12px 35px rgba(15, 23, 42, .07);
+            overflow: hidden;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 28px;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .section-header h2 {
+            font-size: 20px;
+        }
+
+        .status {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .notification-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .notification {
+            display: flex;
+            gap: 18px;
+            padding: 24px 28px;
+            border-bottom: 1px solid #edf0f5;
+            transition: background .2s ease;
+        }
+
+        .notification:last-child {
+            border-bottom: none;
+        }
+
+        .notification:hover {
+            background: #fafbff;
+        }
+
+        .notification.unread {
+            background: #f8f9ff;
+        }
+
+        .icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+            background: #eef2ff;
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .notification-message {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .notification-date {
+            margin-top: 10px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .unread-dot {
+            width: 9px;
+            height: 9px;
+            background: #6366f1;
+            border-radius: 50%;
+            margin-top: 7px;
+        }
+
+        .empty {
+            padding: 70px 30px;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .empty-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            background: #eef2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+        }
+
+        .empty h3 {
+            color: #111827;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 700px) {
+            .page {
+                width: min(100% - 28px, 1180px);
+                padding-top: 24px;
+            }
+
+            .top {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .section-header {
+                padding: 20px;
+            }
+
+            .notification {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="top">
+        <div>
+            <span class="eyebrow">LEARNING CENTER</span>
+            <h1>Notifications</h1>
+            <p class="subtitle">
+                Stay updated with your learning progress and activities.
+            </p>
+        </div>
+
+        <a href="dashboard.html" class="back">
+            ← Back to Dashboard
+        </a>
+    </div>
+
+    <div class="notification-container">
+
+        <div class="section-header">
+            <h2>Recent Notifications</h2>
+            <span class="status" id="notificationStatus">
+                Your learning updates
+            </span>
+        </div>
+
+        <div class="notification-list" id="notificationList"></div>
+
+    </div>
+
+</div>
+
+<script>
+const API_BASE = "http://localhost:5000/api";
+const token = localStorage.getItem("adaptiveLearnToken");
+
+const demoNotifications = [
+    {
+        id: "demo-1",
+        title: "Welcome to Adaptive Learning!",
+        message: "Your personalized learning journey is ready. Complete quizzes and assessments to help the system understand your strengths and weak areas.",
+        icon: "🎓",
+        date: "Today",
+        unread: true
+    },
+    {
+        id: "demo-2",
+        title: "Your Adaptive Learning is Ready",
+        message: "Your next practice session will be personalized according to your previous performance and topic-wise accuracy.",
+        icon: "🧠",
+        date: "Today",
+        unread: true
+    },
+    {
+        id: "demo-3",
+        title: "Daily Challenge Available",
+        message: "A new daily skill challenge is waiting for you. Complete it to improve your streak and earn XP.",
+        icon: "⚡",
+        date: "Today",
+        unread: false
+    },
+    {
+        id: "demo-4",
+        title: "Study Plan Updated",
+        message: "Your study plan is organized according to your learning progress. Focus on the recommended topics to improve your preparation.",
+        icon: "📚",
+        date: "Recently",
+        unread: false
+    },
+    {
+        id: "demo-5",
+        title: "Keep Building Your Streak",
+        message: "Regular practice helps you maintain your learning streak. Come back tomorrow and continue your preparation.",
+        icon: "🔥",
+        date: "Recently",
+        unread: false
+    },
+    {
+        id: "demo-6",
+        title: "Achievements Are Waiting",
+        message: "Complete quizzes, challenges and learning activities to earn achievements and increase your XP.",
+        icon: "🏆",
+        date: "Recently",
+        unread: false
+    }
+];
+
+function escapeHTML(value) {
+    const div = document.createElement("div");
+    div.textContent = value ?? "";
+    return div.innerHTML;
+}
+
+function formatDate(value) {
+    if (!value) return "Recently";
+
+    const date = new Date(value);
+
+    if (Number.isNaN(date.getTime())) {
+        return String(value);
+    }
+
+    return date.toLocaleString([], {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+}
+
+function renderNotifications(notifications) {
+
+    const list = document.getElementById("notificationList");
+    const status = document.getElementById("notificationStatus");
+
+    if (!notifications || notifications.length === 0) {
+        list.innerHTML = `
+            <div class="empty">
+                <div class="empty-icon">🔔</div>
+                <h3>No new notifications</h3>
+                <p>You're all caught up.</p>
+            </div>
+        `;
+
+        status.textContent = "All caught up";
+        return;
+    }
+
+    const unreadCount = notifications.filter(n => n.unread).length;
+
+    status.textContent =
+        unreadCount > 0
+            ? `${unreadCount} unread`
+            : "All caught up";
+
+    list.innerHTML = notifications.map(notification => {
+
+        return `
+            <div class="notification ${notification.unread ? "unread" : ""}">
+
+                <div class="icon">
+                    ${escapeHTML(notification.icon || "🔔")}
+                </div>
+
+                <div class="notification-content">
+
+                    <div class="notification-title">
+                        ${escapeHTML(notification.title)}
+                    </div>
+
+                    <div class="notification-message">
+                        ${escapeHTML(notification.message)}
+                    </div>
+
+                    <div class="notification-date">
+                        ${escapeHTML(notification.date)}
+                    </div>
+
+                </div>
+
+                ${
+                    notification.unread
+                        ? `<div class="unread-dot"></div>`
+                        : ""
+                }
+
+            </div>
+        `;
+
+    }).join("");
+}
+
+async function loadNotifications() {
+
+    /*
+     * If the backend is available and contains real notifications,
+     * use those notifications.
+     *
+     * If there are currently no notification records, use the
+     * professional demo notifications so the page never looks blank.
+     */
+
+    if (!token) {
+        renderNotifications(demoNotifications);
+        return;
+    }
+
+    try {
+
+        const response = await fetch(`${API_BASE}/misc/notifications`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        if (response.status === 401) {
+            localStorage.removeItem("adaptiveLearnToken");
+            localStorage.removeItem("adaptiveLearnUser");
+            window.location.href = "index.html";
+            return;
+        }
+
+        if (!response.ok) {
+            throw new Error("Unable to load notifications");
+        }
+
+        const data = await response.json();
+
+        let notifications = [];
+
+        if (Array.isArray(data)) {
+            notifications = data;
+        } else if (Array.isArray(data.notifications)) {
+            notifications = data.notifications;
+        } else if (Array.isArray(data.data)) {
+            notifications = data.data;
+        }
+
+        /*
+         * Backend notification records exist:
+         * show them.
+         *
+         * No records:
+         * show demo learning notifications.
+         */
+        if (notifications.length > 0) {
+
+            notifications = notifications.map(item => ({
+                id: item.notification_id || item.id,
+                title: item.title || "Learning Update",
+                message: item.message || item.notification_message || "",
+                icon: item.icon || "🔔",
+                date: formatDate(
+                    item.created_at ||
+                    item.notification_date ||
+                    item.date
+                ),
+                unread:
+                    item.is_read === 0 ||
+                    item.is_read === false ||
+                    item.read === false
+            }));
+
+            renderNotifications(notifications);
+
+        } else {
+
+            renderNotifications(demoNotifications);
+
+        }
+
+    } catch (error) {
+
+        console.log("Notification API unavailable:", error);
+
+        /*
+         * Do NOT show the ugly:
+         * "Unable to load notifications"
+         *
+         * For the demo, display useful learning notifications.
+         */
+        renderNotifications(demoNotifications);
+    }
+}
+
+loadNotifications();
+</script>
+<script src="js/profile-sync.js"></script>
+
+</body>
+</html>

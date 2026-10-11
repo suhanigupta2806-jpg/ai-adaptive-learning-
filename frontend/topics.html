@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Topics - AdaptiveLearn</title>
+
+    <link rel="stylesheet" href="css/topics.css">
+    <link rel="stylesheet" href="css/app-theme.css">
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+    <div class="sidebar-logo">
+        Adaptive<span>Learn</span>
+    </div>
+
+    <div class="sidebar-menu">
+
+        <p class="menu-title">
+            MAIN MENU
+        </p>
+
+        <a href="dashboard.html" class="menu-item">
+            <span>🏠</span>
+            Dashboard
+        </a>
+
+        <a href="exams.html" class="menu-item">
+            <span>📚</span>
+            My Exams
+        </a>
+
+        <a href="exams.html" class="menu-item active">
+            <span>📝</span>
+            Practice
+        </a>
+
+        <a href="mock-test.html" class="menu-item">
+            <span>🧪</span>
+            Mock Test
+        </a>
+
+        <a href="study-plan.html" class="menu-item">
+            <span>📅</span>
+            Study Plan
+        </a>
+
+        <a href="daily-challenge.html" class="menu-item">
+            <span>🎯</span>
+            Daily Challenge
+        </a>
+
+        <p class="menu-title second-title">
+            TRACK
+        </p>
+
+        <a href="dashboard.html#weakAreas" class="menu-item">
+            <span>📊</span>
+            Progress
+        </a>
+
+        <a href="dashboard.html#achievementsSection" class="menu-item">
+            <span>🏆</span>
+            Achievements
+        </a>
+
+    </div>
+
+    <div class="sidebar-bottom">
+
+        <a href="#" class="menu-item">
+            <span>⚙️</span>
+            Settings
+        </a>
+
+        <a href="index.html" class="menu-item logout">
+            <span>↪</span>
+            Logout
+        </a>
+
+    </div>
+
+</aside>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div>
+
+                <p class="page-label">
+
+                    <span id="examLabel">
+                        ESIC UDC
+                    </span>
+
+                    / TOPIC PRACTICE
+
+                </p>
+
+                <h1 id="subjectTitle">
+                    Quantitative Aptitude
+                </h1>
+
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-avatar">
+                    S
+                </div>
+
+                <div>
+
+                    <strong>
+                        Student
+                    </strong>
+
+                    <small id="profileExam">
+                        ESIC UDC
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- BACK -->
+        <a
+            href="subjects.html?exam=esic"
+            class="back-link"
+            id="backToSubjects"
+        >
+            ← Back to Subjects
+        </a>
+
+
+        <!-- INTRO -->
+        <section class="intro">
+
+            <div>
+
+                <p class="intro-label">
+                    TOPIC-LEVEL ANALYSIS
+                </p>
+
+                <h2>
+                    Strengthen your weak areas
+                </h2>
+
+                <p>
+                    Your performance is tracked at topic level.
+                    Focus on topics with lower mastery to improve
+                    your preparation.
+                </p>
+
+            </div>
+
+            <div class="subject-stat">
+
+                <span>
+                    Subject Mastery
+                </span>
+
+                <strong id="subjectMastery">
+                    48%
+                </strong>
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        id="subjectProgress"
+                        style="width:48%;"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TOPICS -->
+        <section class="topics-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p>
+                        AVAILABLE TOPICS
+                    </p>
+
+                    <h2 id="topicsHeading">
+                        Quantitative Aptitude
+                    </h2>
+
+                </div>
+
+                <span
+                    class="topic-count"
+                    id="topicCount"
+                >
+                    0 Topics
+                </span>
+
+            </div>
+
+
+            <div
+                class="topics-grid"
+                id="topicsGrid"
+            ></div>
+
+        </section>
+
+
+        <!-- RECOMMENDATION -->
+        <section class="recommendation">
+
+            <div class="recommendation-icon">
+                ✦
+            </div>
+
+            <div class="recommendation-content">
+
+                <p>
+                    ADAPTIVE RECOMMENDATION
+                </p>
+
+                <h2 id="recommendationTitle">
+                    Focus on your weakest topic
+                </h2>
+
+                <span id="recommendationText">
+                    Your weakest topic will appear here.
+                </span>
+
+            </div>
+
+            <a
+                href="#"
+                class="recommendation-button"
+                id="weakTopicButton"
+            >
+                Practice Weak Topic →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/topics.js"></script>
+    <script src="js/profile-sync.js"></script>
+
+</body>
+
+</html>

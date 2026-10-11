@@ -1,0 +1,655 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+    min-height: 100vh;
+}
+
+
+/* HEADER */
+
+.top-header {
+    height: 76px;
+    background: #ffffff;
+    border-bottom: 1px solid #e6e9f0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 12px;
+    background: #eef2ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+.brand h2 {
+    font-size: 17px;
+    margin-bottom: 3px;
+}
+
+.brand span {
+    color: #7a8295;
+    font-size: 12px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-btn {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #f5f6fa;
+
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.profile-btn {
+    border: none;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.avatar {
+    width: 37px;
+    height: 37px;
+
+    border-radius: 50%;
+
+    background: #5b5fd0;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* CONTAINER */
+
+.container {
+    width: 88%;
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 30px 0 60px;
+}
+
+
+/* BACK */
+
+.back-btn {
+    border: none;
+    background: transparent;
+
+    color: #596278;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    margin-bottom: 22px;
+}
+
+
+/* HERO */
+
+.challenge-hero {
+    background: #5b5fd0;
+
+    color: white;
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    opacity: 0.9;
+}
+
+.hero-content h1 {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.hero-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.hero-icon {
+    width: 125px;
+    height: 125px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.15);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 58px;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 35px;
+
+    margin-top: 25px;
+}
+
+.hero-stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hero-stats strong {
+    font-size: 17px;
+}
+
+.hero-stats span {
+    font-size: 11px;
+    opacity: 0.75;
+}
+
+
+/* CHALLENGE */
+
+.challenge-card {
+    background: white;
+
+    border: 1px solid #e5e8ef;
+
+    border-radius: 20px;
+
+    padding: 28px;
+
+    margin-bottom: 30px;
+}
+
+.challenge-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.section-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: #6366d8;
+}
+
+.challenge-top h2 {
+    font-size: 22px;
+    margin-top: 7px;
+}
+
+.difficulty {
+    background: #fff4dc;
+    color: #c77d00;
+
+    padding: 8px 13px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+
+/* TOPIC */
+
+.topic-info {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    margin-bottom: 25px;
+}
+
+.topic-info span {
+    background: #f3f4f8;
+
+    color: #606a80;
+
+    padding: 7px 11px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+}
+
+
+/* QUESTION */
+
+.question-box {
+    background: #f8f9fc;
+
+    border: 1px solid #e8eaf0;
+
+    border-radius: 16px;
+
+    padding: 25px;
+}
+
+.question-number {
+    color: #6366d8;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.question-box h3 {
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    margin: 12px 0 22px;
+}
+
+.options {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.options button {
+    background: white;
+
+    border: 1px solid #dfe3eb;
+
+    border-radius: 11px;
+
+    padding: 15px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+.options button:hover {
+    border-color: #696bd2;
+}
+
+.options button.selected {
+    border-color: #5b5fd0;
+
+    background: #eff0ff;
+
+    color: #4c50b9;
+
+    font-weight: 700;
+}
+
+
+/* ACTIONS */
+
+.challenge-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 22px;
+}
+
+.primary-btn {
+    border: none;
+
+    background: #5b5fd0;
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.primary-btn:hover {
+    background: #484cb7;
+}
+
+.primary-btn:disabled {
+    background: #c5c8d8;
+    cursor: not-allowed;
+}
+
+
+/* RESULT */
+
+.result-box {
+    margin-top: 25px;
+
+    padding: 30px;
+
+    background: #f0faf4;
+
+    border: 1px solid #d8f0df;
+
+    border-radius: 16px;
+
+    text-align: center;
+}
+
+.result-box.hidden {
+    display: none;
+}
+
+.result-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.result-box h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.result-box p {
+    color: #697385;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+.reward-box {
+    display: inline-flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    background: white;
+
+    padding: 14px 30px;
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+}
+
+.reward-box span {
+    font-size: 11px;
+    color: #788094;
+}
+
+.reward-box strong {
+    color: #24804b;
+    font-size: 22px;
+}
+
+
+/* INFO */
+
+.info-section {
+    margin-bottom: 25px;
+}
+
+.section-heading {
+    margin-bottom: 18px;
+}
+
+.section-heading h2 {
+    font-size: 21px;
+    margin-top: 6px;
+}
+
+.steps-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.step-card {
+    background: white;
+
+    border: 1px solid #e5e8ef;
+
+    border-radius: 16px;
+
+    padding: 22px;
+}
+
+.step-number {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: #eff0ff;
+
+    color: #575bc5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+.step-card h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.step-card p {
+    color: #788094;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* REWARD */
+
+.reward-section {
+    background: white;
+
+    border: 1px solid #e5e8ef;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+.reward-icon {
+    width: 58px;
+    height: 58px;
+
+    background: #fff5dc;
+
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+}
+
+.reward-section h2 {
+    margin: 5px 0;
+
+    font-size: 22px;
+}
+
+.reward-section p {
+    color: #788094;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* TOAST */
+
+.toast {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    background: #202638;
+    color: white;
+
+    padding: 13px 18px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    pointer-events: none;
+
+    transition: 0.3s;
+
+    z-index: 500;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 750px) {
+
+    .challenge-hero {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .hero-icon {
+        width: 85px;
+        height: 85px;
+        font-size: 40px;
+    }
+
+    .hero-stats {
+        gap: 20px;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .options {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .hero-content h1 {
+        font-size: 25px;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .challenge-top {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .profile-btn span:last-child {
+        display: none;
+    }
+}

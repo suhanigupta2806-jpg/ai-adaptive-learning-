@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Create Account - AdaptiveLearn</title>
+
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/app-theme.css">
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        <!-- Left Side -->
+        <div class="auth-info">
+
+            <div class="auth-logo">
+                Adaptive<span>Learn</span>
+            </div>
+
+            <div class="info-content">
+
+                <p class="auth-label">
+                    START YOUR JOURNEY
+                </p>
+
+                <h1>
+                    Prepare your way.
+                </h1>
+
+                <p>
+                    Create your account and let the system
+                    personalize your exam preparation based
+                    on your performance.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Right Side -->
+        <div class="auth-form-container">
+
+            <div class="auth-form">
+
+                <a href="index.html" class="back-link">
+                    ← Back to Home
+                </a>
+
+                <h2>Create Account</h2>
+
+                <p class="form-subtitle">
+                    Start your personalized preparation journey.
+                </p>
+
+
+                <form id="registerForm">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="registerEmail"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            placeholder="Create a password"
+                            minlength="6"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm your password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="exam">
+                            Target Exam
+                        </label>
+
+                        <select id="exam" required>
+
+                            <option value="">
+                                Select your exam
+                            </option>
+
+                            <option value="ESIC UDC">
+                                ESIC UDC
+                            </option>
+
+                            <option value="OICL Assistant">
+                                OICL Assistant
+                            </option>
+
+                            <option value="NIACL Assistant">
+                                NIACL Assistant
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="auth-button"
+                    >
+                        Create Account
+                    </button>
+
+                </form>
+
+
+                <p class="register-text">
+
+                    Already have an account?
+
+                    <a href="login.html">
+                        Login
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Subjects - AdaptiveLearn</title>
+
+    <link rel="stylesheet" href="css/subjects.css">
+    <link rel="stylesheet" href="css/app-theme.css">
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+    <div class="sidebar-logo">
+        Adaptive<span>Learn</span>
+    </div>
+
+    <div class="sidebar-menu">
+
+        <p class="menu-title">
+            MAIN MENU
+        </p>
+
+        <a href="dashboard.html" class="menu-item">
+            <span>🏠</span>
+            Dashboard
+        </a>
+
+        <a href="exams.html" class="menu-item active">
+            <span>📚</span>
+            My Exams
+        </a>
+
+        <a href="exams.html" class="menu-item">
+            <span>📝</span>
+            Practice
+        </a>
+
+        <a href="mock-test.html" class="menu-item">
+            <span>🧪</span>
+            Mock Test
+        </a>
+
+        <a href="study-plan.html" class="menu-item">
+            <span>📅</span>
+            Study Plan
+        </a>
+
+        <a href="daily-challenge.html" class="menu-item">
+            <span>🎯</span>
+            Daily Challenge
+        </a>
+
+        <p class="menu-title second-title">
+            TRACK
+        </p>
+
+        <a href="dashboard.html#weakAreas" class="menu-item">
+            <span>📊</span>
+            Progress
+        </a>
+
+        <a href="dashboard.html#achievementsSection" class="menu-item">
+            <span>🏆</span>
+            Achievements
+        </a>
+
+    </div>
+
+    <div class="sidebar-bottom">
+
+        <a href="#" class="menu-item">
+            <span>⚙️</span>
+            Settings
+        </a>
+
+        <a href="index.html" class="menu-item logout">
+            <span>↪</span>
+            Logout
+        </a>
+
+    </div>
+
+</aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <p
+                    class="page-label"
+                    id="examPageLabel"
+                >
+                    ESIC UDC PREPARATION
+                </p>
+
+                <h1>
+                    Subjects
+                </h1>
+
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-avatar">
+                    S
+                </div>
+
+                <div>
+
+                    <strong>
+                        Student
+                    </strong>
+
+                    <small id="profileExam">
+                        ESIC UDC
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- BACK -->
+        <a
+            href="exams.html"
+            class="back-link"
+        >
+            ← Back to My Exams
+        </a>
+
+
+        <!-- INTRO -->
+        <section class="intro">
+
+            <div>
+
+                <p class="intro-label">
+                    YOUR SELECTED EXAM
+                </p>
+
+                <h2 id="examTitle">
+                    ESIC UDC
+                </h2>
+
+                <p>
+                    Choose a subject to start practicing.
+                    Your performance will be analyzed topic by topic.
+                </p>
+
+            </div>
+
+            <div class="overall-progress">
+
+                <span>
+                    Overall Progress
+                </span>
+
+                <strong id="overallProgress">
+                    72%
+                </strong>
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        id="overallProgressFill"
+                        style="width:72%;"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUBJECTS -->
+        <section class="subjects-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p>
+                        EXAM SUBJECTS
+                    </p>
+
+                    <h2>
+                        Continue your preparation
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="subjects-grid">
+
+                <!-- ENGLISH -->
+                <div class="subject-card">
+
+                    <div class="subject-top">
+
+                        <div class="subject-icon">
+                            A
+                        </div>
+
+                        <span class="mastery good">
+                            68% Mastery
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        English Language
+                    </h3>
+
+                    <p>
+                        Grammar, vocabulary, reading comprehension
+                        and language skills.
+                    </p>
+
+                    <div class="subject-progress">
+
+                        <div class="progress-info">
+
+                            <span>
+                                Progress
+                            </span>
+
+                            <strong>
+                                68%
+                            </strong>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div
+                                class="progress-fill good"
+                                style="width:68%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="subject-footer">
+
+                        <span>
+                            120 Questions
+                        </span>
+
+                        <a
+                            href="topics.html?exam=esic&subject=english"
+                            data-subject="english"
+                        >
+                            Practice →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REASONING -->
+                <div class="subject-card">
+
+                    <div class="subject-top">
+
+                        <div class="subject-icon">
+                            🧩
+                        </div>
+
+                        <span class="mastery medium">
+                            56% Mastery
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Reasoning Ability
+                    </h3>
+
+                    <p>
+                        Logical reasoning, puzzles, coding-decoding
+                        and analytical ability.
+                    </p>
+
+                    <div class="subject-progress">
+
+                        <div class="progress-info">
+
+                            <span>
+                                Progress
+                            </span>
+
+                            <strong>
+                                56%
+                            </strong>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div
+                                class="progress-fill medium"
+                                style="width:56%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="subject-footer">
+
+                        <span>
+                            140 Questions
+                        </span>
+
+                        <a
+                            href="topics.html?exam=esic&subject=reasoning"
+                            data-subject="reasoning"
+                        >
+                            Practice →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUANTITATIVE -->
+                <div class="subject-card">
+
+                    <div class="subject-top">
+
+                        <div class="subject-icon">
+                            %
+                        </div>
+
+                        <span class="mastery weak">
+                            48% Mastery
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Quantitative Aptitude
+                    </h3>
+
+                    <p>
+                        Arithmetic, percentages, averages,
+                        ratios and numerical ability.
+                    </p>
+
+                    <div class="subject-progress">
+
+                        <div class="progress-info">
+
+                            <span>
+                                Progress
+                            </span>
+
+                            <strong>
+                                48%
+                            </strong>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div
+                                class="progress-fill weak"
+                                style="width:48%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="subject-footer">
+
+                        <span>
+                            150 Questions
+                        </span>
+
+                        <a
+                            href="topics.html?exam=esic&subject=quantitative"
+                            data-subject="quantitative"
+                        >
+                            Practice →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- GENERAL AWARENESS -->
+                <div class="subject-card">
+
+                    <div class="subject-top">
+
+                        <div class="subject-icon">
+                            🌐
+                        </div>
+
+                        <span class="mastery good">
+                            76% Mastery
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        General Awareness
+                    </h3>
+
+                    <p>
+                        Current affairs, general knowledge,
+                        banking and insurance awareness.
+                    </p>
+
+                    <div class="subject-progress">
+
+                        <div class="progress-info">
+
+                            <span>
+                                Progress
+                            </span>
+
+                            <strong>
+                                76%
+                            </strong>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div
+                                class="progress-fill good"
+                                style="width:76%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="subject-footer">
+
+                        <span>
+                            100 Questions
+                        </span>
+
+                        <a
+                            href="topics.html?exam=esic&subject=general-awareness"
+                            data-subject="general-awareness"
+                        >
+                            Practice →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECOMMENDATION -->
+        <section class="recommendation">
+
+            <div class="recommendation-icon">
+                ✦
+            </div>
+
+            <div class="recommendation-content">
+
+                <p>
+                    PERSONALIZED RECOMMENDATION
+                </p>
+
+                <h2 id="recommendationTitle">
+                    Start with Quantitative Aptitude
+                </h2>
+
+                <span id="recommendationText">
+                    Your current mastery is 48%, making this
+                    your weakest subject. Practicing it now
+                    can have the biggest impact on your progress.
+                </span>
+
+            </div>
+
+            <a
+                href="topics.html?exam=esic&subject=quantitative"
+                class="recommendation-button"
+                id="recommendationButton"
+            >
+                Start Practice →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/subjects.js"></script>
+    <script src="js/profile-sync.js"></script>
+
+</body>
+
+</html>

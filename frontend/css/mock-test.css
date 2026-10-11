@@ -1,0 +1,420 @@
+/* =========================================
+   MOCK TEST PAGE
+   AdaptiveLearn
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.top-header {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 7%;
+}
+
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+
+.back-button {
+    text-decoration: none;
+    color: #374151;
+    font-size: 15px;
+    font-weight: 600;
+
+    padding: 10px 16px;
+    border-radius: 8px;
+
+    transition: 0.2s;
+}
+
+
+.back-button:hover {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.mock-container {
+    width: 86%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 55px 0 70px;
+}
+
+
+/* =========================================
+   PAGE HEADING
+========================================= */
+
+.page-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+.small-label {
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+
+.page-heading h1 {
+    font-size: 42px;
+    margin-bottom: 12px;
+    color: #111827;
+}
+
+
+.page-heading p:last-child {
+    color: #6b7280;
+    font-size: 16px;
+}
+
+
+/* =========================================
+   EXAM SELECTION
+========================================= */
+
+.exam-selection {
+    margin-bottom: 55px;
+}
+
+
+.exam-selection h2,
+.test-information h2,
+.instructions h2 {
+    font-size: 26px;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+
+.section-description {
+    color: #6b7280;
+    margin-bottom: 28px;
+}
+
+
+/* =========================================
+   EXAM CARDS
+========================================= */
+
+.exam-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+.exam-card {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.05);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.exam-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+.exam-icon {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 12px;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+
+.exam-card h3 {
+    font-size: 21px;
+    color: #111827;
+
+    margin-bottom: 10px;
+}
+
+
+.exam-card p {
+    color: #6b7280;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    min-height: 68px;
+}
+
+
+/* =========================================
+   EXAM DETAILS
+========================================= */
+
+.exam-details {
+    display: flex;
+    gap: 10px;
+
+    margin: 20px 0;
+}
+
+
+.exam-details span {
+    background: #f3f4f6;
+
+    color: #4b5563;
+
+    padding: 7px 10px;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   SELECT BUTTON
+========================================= */
+
+.select-exam-button {
+    width: 100%;
+
+    border: none;
+    border-radius: 9px;
+
+    padding: 12px 16px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.select-exam-button:hover {
+    background: #1d4ed8;
+}
+
+
+.select-exam-button:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================================
+   INFORMATION SECTION
+========================================= */
+
+.test-information {
+    margin-bottom: 50px;
+}
+
+
+.information-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-top: 28px;
+}
+
+
+.information-card {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    padding: 22px;
+}
+
+
+.information-number {
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #2563eb;
+
+    margin-bottom: 15px;
+}
+
+
+.information-card h3 {
+    font-size: 17px;
+
+    color: #111827;
+
+    margin-bottom: 10px;
+}
+
+
+.information-card p {
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    color: #6b7280;
+}
+
+
+/* =========================================
+   INSTRUCTIONS
+========================================= */
+
+.instructions {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    padding: 30px;
+}
+
+
+.instructions ul {
+    margin-top: 20px;
+
+    padding-left: 22px;
+}
+
+
+.instructions li {
+    color: #4b5563;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 950px) {
+
+    .exam-cards {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .information-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .top-header {
+        padding: 15px 5%;
+    }
+
+
+    .logo {
+        font-size: 20px;
+    }
+
+
+    .mock-container {
+        width: 90%;
+        padding-top: 35px;
+    }
+
+
+    .page-heading h1 {
+        font-size: 32px;
+    }
+
+
+    .exam-cards {
+        grid-template-columns: 1fr;
+    }
+
+
+    .information-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .exam-details {
+        flex-wrap: wrap;
+    }
+
+}

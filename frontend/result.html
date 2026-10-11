@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Quiz Result - AdaptiveLearn
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/result.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/app-theme.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <div class="result-container">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <div class="result-header">
+
+            <h1>
+                🎉 Quiz Completed!
+            </h1>
+
+            <p>
+                Here is your performance summary
+            </p>
+
+
+            <div class="quiz-info">
+
+                <span>
+
+                    Exam:
+                    <strong id="examName">
+                        ESIC UDC
+                    </strong>
+
+                </span>
+
+
+                <span>
+
+                    Subject:
+                    <strong id="subjectName">
+                        English Language
+                    </strong>
+
+                </span>
+
+
+                <span>
+
+                    Topic:
+                    <strong id="topicName">
+                        Error Detection
+                    </strong>
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SCORE
+        ================================================== -->
+
+        <div class="score-card">
+
+            <div class="score-circle">
+
+                <div
+                    class="score"
+                    id="score"
+                >
+                    0%
+                </div>
+
+
+                <div class="score-label">
+
+                    Score
+
+                </div>
+
+            </div>
+
+
+            <h2 id="resultTitle">
+
+                Keep Practicing!
+
+            </h2>
+
+
+            <p id="resultMessage">
+
+                Your result will appear here.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <div class="result-stats">
+
+
+            <div class="stat-card">
+
+                <h3 id="totalQuestions">
+                    0
+                </h3>
+
+                <p>
+                    Total Questions
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3 id="correctAnswers">
+                    0
+                </h3>
+
+                <p>
+                    Correct Answers
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3 id="wrongAnswers">
+                    0
+                </h3>
+
+                <p>
+                    Incorrect Answers
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3 id="accuracy">
+                    0%
+                </h3>
+
+                <p>
+                    Accuracy
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             TIME
+        ================================================== -->
+
+        <div class="time-card">
+
+
+            <div>
+
+                <h3>
+                    ⏱ Time Taken
+                </h3>
+
+                <p id="timeTaken">
+                    00:00
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    🎯 Target Accuracy
+                </h3>
+
+                <p>
+                    70%
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             PERFORMANCE ANALYSIS
+        ================================================== -->
+
+        <div class="performance-card">
+
+
+            <h2>
+                📊 Performance Analysis
+            </h2>
+
+
+            <div class="progress-section">
+
+
+                <div class="progress-header">
+
+                    <span>
+                        Overall Performance
+                    </span>
+
+
+                    <span id="performancePercent">
+                        0%
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        id="progressFill"
+                    >
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div
+                class="performance-message"
+                id="performanceMessage"
+            >
+
+                Performance analysis will appear here.
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             ADAPTIVE RECOMMENDATION
+        ================================================== -->
+
+        <div class="recommendation-card">
+
+
+            <h2>
+                🧠 Adaptive Learning Recommendation
+            </h2>
+
+
+            <p id="recommendationText">
+
+                Your personalized recommendation
+                will appear here.
+
+            </p>
+
+
+            <div class="recommendation-action">
+
+
+                <strong>
+                    Recommended Next Step:
+                </strong>
+
+
+                <span id="nextStep">
+
+                    Practice this topic again
+
+                </span>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             WEAK TOPIC
+        ================================================== -->
+
+        <div class="weak-topic-card">
+
+
+            <h2>
+                📌 Focus Area
+            </h2>
+
+
+            <p id="weakTopicMessage">
+
+                Your weak topic analysis will
+                appear here.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             ANSWER REVIEW
+        ================================================== -->
+
+        <div class="review-section">
+
+
+            <h2>
+                📝 Detailed Answer Review
+            </h2>
+
+
+            <div id="reviewContainer">
+
+                <!-- Questions are inserted by result.js -->
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             ACTION BUTTONS
+        ================================================== -->
+
+        <div class="result-actions">
+
+
+            <a
+                href="dashboard.html"
+                class="result-btn secondary-btn"
+            >
+
+                ← Back to Dashboard
+
+            </a>
+
+
+            <!--
+                IMPORTANT:
+                The href is intentionally empty here.
+
+                result.js will create the correct URL
+                from the completed quiz result.
+
+                Example:
+
+                subjects.html?exam=esic&examId=1
+
+            -->
+
+            <a
+                href="#"
+                id="practiceAgainButton"
+                class="result-btn primary-btn"
+            >
+
+                Practice Again →
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         RESULT JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/result.js?v=20260914-3"></script>
+
+
+    <!-- =====================================================
+         PRACTICE AGAIN FALLBACK
+
+         This runs immediately as an additional safety net.
+         result.js will also set the same link after reading
+         quizResult.
+    ====================================================== -->
+
+    <script>
+
+        (function () {
+
+            const button =
+                document.getElementById(
+                    "practiceAgainButton"
+                );
+
+
+            if (!button) {
+                return;
+            }
+
+
+            try {
+
+                const storedResult =
+                    sessionStorage.getItem(
+                        "quizResult"
+                    );
+
+
+                if (!storedResult) {
+                    return;
+                }
+
+
+                const result =
+                    JSON.parse(
+                        storedResult
+                    );
+
+
+                const examId =
+                    Number(
+                        result.examId
+                    ) || null;
+
+
+                let examSlug =
+                    (
+                        result.exam ||
+                        ""
+                    )
+                        .trim()
+                        .toLowerCase();
+
+
+                /*
+                    Convert common exam names to
+                    the URL slugs used by the website.
+                */
+
+                if (
+                    !examSlug &&
+                    result.examName
+                ) {
+
+                    const examName =
+                        result.examName
+                            .toLowerCase();
+
+
+                    if (
+                        examName.includes(
+                            "esic"
+                        )
+                    ) {
+
+                        examSlug =
+                            "esic";
+
+                    }
+
+                    else if (
+                        examName.includes(
+                            "oicl"
+                        )
+                    ) {
+
+                        examSlug =
+                            "oicl";
+
+                    }
+
+                    else if (
+                        examName.includes(
+                            "niacl"
+                        )
+                    ) {
+
+                        examSlug =
+                            "niacl";
+
+                    }
+
+                }
+
+
+                if (!examSlug) {
+
+                    return;
+
+                }
+
+
+                let url =
+                    `subjects.html?exam=${encodeURIComponent(
+                        examSlug
+                    )}`;
+
+
+                if (examId) {
+
+                    url +=
+                        `&examId=${examId}`;
+
+                }
+
+
+                button.href =
+                    url;
+
+
+            }
+
+            catch (error) {
+
+                console.warn(
+                    "Practice Again link setup failed:",
+                    error
+                );
+
+            }
+
+        })();
+
+    </script>
+    <script src="js/profile-sync.js"></script>
+
+
+</body>
+
+</html>

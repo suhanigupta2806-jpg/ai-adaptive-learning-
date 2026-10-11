@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daily Skill Challenge | AI Adaptive Learning</title>
+
+    <link rel="stylesheet" href="css/daily-challenge.css">
+    <link rel="stylesheet" href="css/app-theme.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="top-header">
+
+        <div class="brand">
+            <div class="brand-icon">🧠</div>
+
+            <div>
+                <h2>AI Adaptive Learning</h2>
+                <span>Daily Skill Challenge</span>
+            </div>
+        </div>
+
+        <div class="header-actions">
+
+            <button class="icon-btn" onclick="showNotification()">
+                🔔
+            </button>
+
+            <button class="profile-btn" onclick="goToDashboard()">
+                <span class="avatar">S</span>
+                <span>Student</span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="container">
+
+        <button class="back-btn" onclick="goToDashboard()">
+            ← Back to Dashboard
+        </button>
+
+
+        <!-- HERO -->
+        <section class="challenge-hero">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    ⚡ DAILY SKILL CHALLENGE
+                </span>
+
+                <h1>Improve One Skill Every Day</h1>
+
+                <p>
+                    Complete today's short challenge based on your
+                    weakest learning area and earn XP for your progress.
+                </p>
+
+                <div class="hero-stats">
+
+                    <div>
+                        <strong id="heroXP">+50 XP</strong>
+                        <span>Reward</span>
+                    </div>
+
+                    <div>
+                        <strong>5–10 min</strong>
+                        <span>Estimated Time</span>
+                    </div>
+
+                    <div>
+                        <strong id="heroStreak">12 🔥</strong>
+                        <span>Current Streak</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-icon">
+                ⚡
+            </div>
+
+        </section>
+
+
+        <!-- CHALLENGE CARD -->
+        <section id="challengeArea" class="challenge-card">
+
+            <div class="challenge-top">
+
+                <div>
+                    <span class="section-label">
+                        TODAY'S CHALLENGE
+                    </span>
+
+                    <h2 id="challengeTitle">
+                        Percentage Speed Challenge
+                    </h2>
+                </div>
+
+                <span id="difficultyBadge" class="difficulty">
+                    Medium
+                </span>
+
+            </div>
+
+
+            <div class="topic-info">
+
+                <span>📚 Quantitative Aptitude</span>
+
+                <span>🎯 Weak Topic</span>
+
+                <span>⏱ 5–10 minutes</span>
+
+            </div>
+
+
+            <!-- QUESTION -->
+            <div class="question-box">
+
+                <span class="question-number">
+                    Question 1 of 5
+                </span>
+
+                <h3 id="questionText">
+                    A student's marks increase from 60 to 75.
+                    What is the percentage increase?
+                </h3>
+
+
+                <div id="options" class="options">
+
+                    <button onclick="selectAnswer(this, '15%')">
+                        15%
+                    </button>
+
+                    <button onclick="selectAnswer(this, '20%')">
+                        20%
+                    </button>
+
+                    <button onclick="selectAnswer(this, '25%')">
+                        25%
+                    </button>
+
+                    <button onclick="selectAnswer(this, '30%')">
+                        30%
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+            <div class="challenge-actions">
+
+                <button
+                    id="submitBtn"
+                    class="primary-btn"
+                    onclick="submitChallenge()"
+                    disabled>
+                    Submit Challenge
+                </button>
+
+            </div>
+
+
+            <!-- RESULT -->
+            <div id="resultBox" class="result-box hidden">
+
+                <div id="resultIcon" class="result-icon">
+                    🎉
+                </div>
+
+                <h2 id="resultTitle">
+                    Challenge Completed!
+                </h2>
+
+                <p id="resultMessage">
+                    Great work!
+                </p>
+
+                <div class="reward-box">
+
+                    <span>XP Earned</span>
+
+                    <strong id="earnedXP">
+                        +50 XP
+                    </strong>
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="goToDashboard()">
+                    Return to Dashboard
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- HOW IT WORKS -->
+        <section class="info-section">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    HOW IT WORKS
+                </span>
+
+                <h2>Build Your Skills Daily</h2>
+
+            </div>
+
+
+            <div class="steps-grid">
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <h3>AI Finds a Weak Area</h3>
+
+                    <p>
+                        Your performance is analysed to identify
+                        topics that need more practice.
+                    </p>
+
+                </div>
+
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <h3>Complete the Challenge</h3>
+
+                    <p>
+                        Solve a short skill-based task in
+                        approximately 5–10 minutes.
+                    </p>
+
+                </div>
+
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <h3>Earn XP & Improve</h3>
+
+                    <p>
+                        Successful completion earns XP and helps
+                        maintain your learning streak.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REWARD INFO -->
+        <section class="reward-section">
+
+            <div class="reward-icon">
+                🏆
+            </div>
+
+            <div>
+
+                <span class="section-label">
+                    TODAY'S REWARD
+                </span>
+
+                <h2>+50 XP</h2>
+
+                <p>
+                    Complete today's challenge to increase your
+                    XP and keep your learning streak active.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- TOAST -->
+    <div id="toast" class="toast">
+        <span id="toastMessage"></span>
+    </div>
+
+
+    <script src="js/daily-challenge.js"></script>
+    <script src="js/profile-sync.js"></script>
+
+</body>
+</html>

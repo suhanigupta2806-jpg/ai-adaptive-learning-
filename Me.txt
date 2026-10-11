@@ -1,0 +1,69 @@
+BJ@2026
+
+{
+    "name": "Test Student",
+    "email": "teststudent@gmail.com",
+    "password": "123456"
+}
+{
+    "name": "Test Student",
+    "email": "teststudent2@gmail.com",
+    "password": "123456"
+}
+
+http://localhost:5000/api/auth/profile
+
+
+Suhani Gupta
+suhani.demo@gmail.com
+Suhani@123
+
+
+USE ai_adaptive_learning;
+
+SELECT
+    student_id,
+    name,
+    email,
+    target_exam,
+    xp,
+    streak,
+    created_at
+FROM students
+WHERE email = 'suhani.demo@gmail.com';
+SELECT * FROM students;
+
+
+admin@adaptivelearn.com
+Admin@123
+
+
+🟢 Final result
+If all of those pass:
+PROJECT DEVELOPMENT = DONE ✅
+
+Then the only remaining work is submission preparation:
+
+Final screenshots
+Testing table
+ER diagram
+UML diagrams
+Architecture diagram
+Business logic
+Report
+PPT
+Demo sequence
+
+dir 
+node server.js
+
+shriee@test.com 
+Test@123
+addi@test.com 
+Addi@123
+
+1. Open Windows Services
+Press:
+Windows + R
+services.msc
+MySQL80

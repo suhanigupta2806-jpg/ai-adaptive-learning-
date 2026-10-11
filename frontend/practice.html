@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Practice - AdaptiveLearn</title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <style>
+
+        .practice-page {
+            padding: 42px 48px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .practice-header {
+            background: white;
+            border-radius: 20px;
+            padding: 34px 38px;
+            margin-bottom: 28px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .practice-label {
+            color: #6366f1;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 9px;
+        }
+
+        .practice-header h1 {
+            margin: 0 0 10px;
+            color: #111827;
+            font-size: 34px;
+        }
+
+        .practice-header p {
+            margin: 0;
+            max-width: 760px;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .exam-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0, 1fr)
+                );
+            gap: 22px;
+        }
+
+        .exam-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            padding: 28px;
+        }
+
+        .exam-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .exam-card h2 {
+            color: #111827;
+            margin: 0 0 10px;
+            font-size: 21px;
+        }
+
+        .exam-card p {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+            min-height: 68px;
+        }
+
+        .practice-btn {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            text-decoration: none;
+            padding: 13px 16px;
+            margin-top: 20px;
+            border-radius: 10px;
+            background: #6366f1;
+            color: white;
+            font-weight: 700;
+        }
+
+        .practice-btn:hover {
+            background: #4f46e5;
+        }
+
+        .adaptive-box {
+            margin-top: 25px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #4f46e5,
+                    #6366f1
+                );
+            border-radius: 20px;
+            padding: 32px;
+            color: white;
+        }
+
+        .adaptive-box h2 {
+            margin: 0 0 10px;
+            font-size: 23px;
+        }
+
+        .adaptive-box p {
+            color: #e0e7ff;
+            max-width: 850px;
+            line-height: 1.7;
+            margin-bottom: 22px;
+        }
+
+        .adaptive-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: white;
+            color: #4338ca;
+            padding: 13px 22px;
+            border-radius: 10px;
+            font-weight: 800;
+        }
+
+        @media (max-width: 1000px) {
+
+            .exam-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .practice-page {
+                padding: 30px 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="dashboard-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            Adaptive<span>Learn</span>
+        </div>
+
+
+        <div class="sidebar-menu">
+
+            <div class="menu-title">
+                MAIN MENU
+            </div>
+
+
+            <a
+                href="dashboard.html"
+                class="menu-item"
+            >
+                🏠
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="exams.html"
+                class="menu-item"
+            >
+                📚
+                <span>My Exams</span>
+            </a>
+
+
+            <a
+                href="practice.html"
+                class="menu-item active"
+            >
+                📝
+                <span>Practice</span>
+            </a>
+
+
+            <a
+                href="mock-test.html"
+                class="menu-item"
+            >
+                🧪
+                <span>Mock Test</span>
+            </a>
+
+
+            <a
+                href="study-plan.html"
+                class="menu-item"
+            >
+                📅
+                <span>Study Plan</span>
+            </a>
+
+
+            <a
+                href="daily-challenge.html"
+                class="menu-item"
+            >
+                🎯
+                <span>Daily Challenge</span>
+            </a>
+
+
+            <div class="menu-title">
+                TRACK
+            </div>
+
+
+            <a
+                href="study-plan.html"
+                class="menu-item"
+            >
+                📊
+                <span>Progress</span>
+            </a>
+
+
+            <a
+                href="achievements.html"
+                class="menu-item"
+            >
+                🏆
+                <span>Achievements</span>
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="profile.html"
+                class="menu-item"
+            >
+                ⚙️
+                <span>Settings</span>
+            </a>
+
+
+            <a
+                href="index.html"
+                class="menu-item"
+            >
+                ↪
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <div class="practice-page">
+
+
+            <section class="practice-header">
+
+                <div class="practice-label">
+                    PRACTICE
+                </div>
+
+                <h1>
+                    Practice Your Skills
+                </h1>
+
+                <p>
+                    Choose your examination and start
+                    personalized adaptive practice.
+                    AdaptiveLearn analyzes your previous
+                    performance and selects questions
+                    according to your learning needs.
+                </p>
+
+            </section>
+
+
+
+            <section class="exam-grid">
+
+
+                <!-- ESIC -->
+
+                <div class="exam-card">
+
+                    <div class="exam-icon">
+                        E
+                    </div>
+
+                    <h2>
+                        ESIC UDC
+                    </h2>
+
+                    <p>
+                        Practice with questions selected
+                        according to your ESIC UDC
+                        performance and weak areas.
+                    </p>
+
+                    <a
+                        href="quiz.html?exam=esic&examId=1&adaptive=1"
+                        class="practice-btn"
+                    >
+                        Start Adaptive Practice →
+                    </a>
+
+                </div>
+
+
+
+                <!-- OICL -->
+
+                <div class="exam-card">
+
+                    <div class="exam-icon">
+                        O
+                    </div>
+
+                    <h2>
+                        OICL Assistant
+                    </h2>
+
+                    <p>
+                        Get personalized practice based
+                        on your previous OICL Assistant
+                        performance.
+                    </p>
+
+                    <a
+                        href="quiz.html?exam=oicl&examId=2&adaptive=1"
+                        class="practice-btn"
+                    >
+                        Start Adaptive Practice →
+                    </a>
+
+                </div>
+
+
+
+                <!-- NIACL -->
+
+                <div class="exam-card">
+
+                    <div class="exam-icon">
+                        N
+                    </div>
+
+                    <h2>
+                        NIACL Assistant
+                    </h2>
+
+                    <p>
+                        Practice questions personalized
+                        for your NIACL Assistant preparation
+                        and weak areas.
+                    </p>
+
+                    <a
+                        href="quiz.html?exam=niacl&examId=3&adaptive=1"
+                        class="practice-btn"
+                    >
+                        Start Adaptive Practice →
+                    </a>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ADAPTIVE INFORMATION -->
+
+            <section class="adaptive-box">
+
+                <h2>
+                    ⚡ Adaptive Learning
+                </h2>
+
+                <p>
+                    AdaptiveLearn analyzes your previous
+                    quiz performance, identifies weak and
+                    improving topics, and selects the next
+                    questions accordingly. Your performance
+                    is updated after every completed quiz,
+                    allowing the system to continuously
+                    personalize your practice.
+                </p>
+
+                <a
+                    href="quiz.html?exam=esic&examId=1&adaptive=1"
+                    class="adaptive-btn"
+                >
+                    Start Personalized Practice →
+                </a>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+</div>
+
+</body>
+
+</html>

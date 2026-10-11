@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>All Activity | Adaptive Learning</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #111827;
+            min-height: 100vh;
+        }
+
+        .page {
+            width: min(1180px, calc(100% - 48px));
+            margin: 0 auto;
+            padding: 34px 0 60px;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 38px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: #4f46e5;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 38px;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        .back {
+            color: #4f46e5;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            padding-top: 28px;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        .activity-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 24px;
+            box-shadow: 0 12px 35px rgba(15, 23, 42, .07);
+            padding: 30px 34px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .card-header h2 {
+            font-size: 21px;
+        }
+
+        .card-header span {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-top: 12px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 24px;
+            top: 30px;
+            bottom: 30px;
+            width: 2px;
+            background: #e5e7eb;
+        }
+
+        .activity-item {
+            position: relative;
+            display: flex;
+            gap: 20px;
+            padding: 22px 0;
+        }
+
+        .activity-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            border-radius: 15px;
+            background: #eef2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 23px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .activity-content {
+            flex: 1;
+            padding-top: 3px;
+        }
+
+        .activity-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .activity-description {
+            color: #64748b;
+            line-height: 1.55;
+            font-size: 15px;
+        }
+
+        .activity-date {
+            color: #94a3b8;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border-radius: 8px;
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 70px 20px;
+            color: #64748b;
+        }
+
+        .empty-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 20px;
+            background: #eef2ff;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .empty h3 {
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 700px) {
+
+            .page {
+                width: min(100% - 28px, 1180px);
+                padding-top: 24px;
+            }
+
+            .top {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .back {
+                padding-top: 0;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .activity-card {
+                padding: 22px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="top">
+
+        <div>
+            <div class="eyebrow">
+                YOUR LEARNING JOURNEY
+            </div>
+
+            <h1>All Activity</h1>
+
+            <p class="subtitle">
+                A complete timeline of your learning journey.
+            </p>
+        </div>
+
+        <a href="dashboard.html" class="back">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+
+    <div class="activity-card">
+
+        <div class="card-header">
+            <h2>Learning Timeline</h2>
+            <span id="activityCount">Your recent progress</span>
+        </div>
+
+        <div class="timeline" id="activityTimeline"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const API_BASE = "http://localhost:5000/api";
+
+const token = localStorage.getItem("adaptiveLearnToken");
+
+
+/*
+ * Demo activity.
+ *
+ * These entries are shown when the student has not generated
+ * enough real timeline records yet.
+ */
+const demoActivity = [
+
+    {
+        icon: "🎓",
+        title: "Started Learning Journey",
+        description:
+            "Your adaptive exam preparation journey has been initialized.",
+        date: "Today",
+        tag: "Learning"
+    },
+
+    {
+        icon: "🧠",
+        title: "Adaptive Learning Enabled",
+        description:
+            "The system will analyze your topic-wise performance and personalize your practice questions.",
+        date: "Today",
+        tag: "Adaptive Learning"
+    },
+
+    {
+        icon: "📋",
+        title: "Diagnostic Assessment",
+        description:
+            "Your initial assessment helps identify the topics that need more attention.",
+        date: "Today",
+        tag: "Assessment"
+    },
+
+    {
+        icon: "📚",
+        title: "Personalized Study Plan",
+        description:
+            "A structured study path has been prepared based on your learning needs.",
+        date: "Recently",
+        tag: "Study Plan"
+    },
+
+    {
+        icon: "⚡",
+        title: "Daily Challenge Ready",
+        description:
+            "Your daily skill challenge is available. Complete it to earn XP and build your streak.",
+        date: "Recently",
+        tag: "Challenge"
+    },
+
+    {
+        icon: "🏆",
+        title: "Achievements System Activated",
+        description:
+            "Complete quizzes and challenges to unlock achievements and increase your XP.",
+        date: "Recently",
+        tag: "Achievement"
+    }
+
+];
+
+
+function escapeHTML(value) {
+
+    const div = document.createElement("div");
+
+    div.textContent = value ?? "";
+
+    return div.innerHTML;
+}
+
+
+function formatDate(value) {
+
+    if (!value) {
+        return "Recently";
+    }
+
+    const date = new Date(value);
+
+    if (Number.isNaN(date.getTime())) {
+        return String(value);
+    }
+
+    return date.toLocaleString([], {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+
+}
+
+
+function renderActivity(items) {
+
+    const timeline =
+        document.getElementById("activityTimeline");
+
+    const count =
+        document.getElementById("activityCount");
+
+
+    if (!items || items.length === 0) {
+
+        timeline.innerHTML = `
+            <div class="empty">
+
+                <div class="empty-icon">
+                    📚
+                </div>
+
+                <h3>No activity available</h3>
+
+                <p>
+                    Complete a quiz or daily challenge to build your timeline.
+                </p>
+
+            </div>
+        `;
+
+        count.textContent = "No activity yet";
+
+        return;
+    }
+
+
+    count.textContent =
+        `${items.length} learning activities`;
+
+
+    timeline.innerHTML =
+        items.map(item => {
+
+            return `
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">
+                        ${escapeHTML(item.icon || "📘")}
+                    </div>
+
+                    <div class="activity-content">
+
+                        <div class="activity-title">
+                            ${escapeHTML(item.title)}
+                        </div>
+
+                        <div class="activity-description">
+                            ${escapeHTML(item.description)}
+                        </div>
+
+                        <div class="activity-date">
+                            ${escapeHTML(item.date)}
+                        </div>
+
+                        ${
+                            item.tag
+                                ? `
+                                    <span class="tag">
+                                        ${escapeHTML(item.tag)}
+                                    </span>
+                                `
+                                : ""
+                        }
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+async function loadActivity() {
+
+    /*
+     * If there is no login token, show the learning journey
+     * instead of leaving the page blank.
+     */
+    if (!token) {
+
+        renderActivity(demoActivity);
+
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(`${API_BASE}/dashboard/`, {
+
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+
+            });
+
+
+        if (response.status === 401) {
+
+            localStorage.removeItem("adaptiveLearnToken");
+
+            localStorage.removeItem("adaptiveLearnUser");
+
+            window.location.href = "index.html";
+
+            return;
+        }
+
+
+        if (!response.ok) {
+
+            throw new Error("Dashboard request failed");
+
+        }
+
+
+        const data = await response.json();
+
+
+        const timeline =
+            data.timeline ||
+            data.dashboard?.timeline ||
+            data.data?.timeline ||
+            [];
+
+
+        if (Array.isArray(timeline) && timeline.length > 0) {
+
+            const realActivity = timeline.map(item => {
+
+                const type =
+                    String(
+                        item.activity_type ||
+                        item.type ||
+                        "Learning Activity"
+                    ).toLowerCase();
+
+
+                let icon = "📘";
+
+                if (type.includes("quiz")) {
+                    icon = "📝";
+                }
+                else if (type.includes("challenge")) {
+                    icon = "⚡";
+                }
+                else if (type.includes("study")) {
+                    icon = "📚";
+                }
+                else if (type.includes("achievement")) {
+                    icon = "🏆";
+                }
+                else if (type.includes("assessment")) {
+                    icon = "📋";
+                }
+                else if (type.includes("adaptive")) {
+                    icon = "🧠";
+                }
+
+
+                return {
+
+                    icon: icon,
+
+                    title:
+                        item.activity_type ||
+                        item.title ||
+                        "Learning Activity",
+
+                    description:
+                        item.activity_description ||
+                        item.description ||
+                        "You completed a learning activity.",
+
+                    date:
+                        formatDate(
+                            item.activity_date ||
+                            item.created_at ||
+                            item.date
+                        ),
+
+                    tag:
+                        item.activity_type ||
+                        "Learning"
+
+                };
+
+            });
+
+
+            renderActivity(realActivity);
+
+        }
+        else {
+
+            /*
+             * No database timeline entries yet.
+             * Show meaningful demo activity.
+             */
+            renderActivity(demoActivity);
+
+        }
+
+
+    }
+    catch (error) {
+
+        console.log(
+            "Activity API unavailable:",
+            error
+        );
+
+        /*
+         * Never leave the page blank during the demo.
+         */
+        renderActivity(demoActivity);
+
+    }
+
+}
+
+
+loadActivity();
+
+</script>
+<script src="js/profile-sync.js"></script>
+
+</body>
+</html>

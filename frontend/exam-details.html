@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Exam Details - AdaptiveLearn</title>
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+           ===================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: #f7f8fc;
+
+            color: #14213d;
+
+            min-height: 100vh;
+
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+           ===================================================== */
+
+        .navbar {
+
+            height: 76px;
+
+            background: #ffffff;
+
+            border-bottom: 1px solid #e7e9f1;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+        }
+
+
+        .logo {
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            letter-spacing: -0.5px;
+
+            color: #14213d;
+
+        }
+
+
+        .logo span {
+            color: #5b5ce2;
+        }
+
+
+        .nav-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .nav-btn {
+
+            border: 1px solid #dfe2ec;
+
+            background: #ffffff;
+
+            color: #34415d;
+
+            padding: 10px 18px;
+
+            border-radius: 9px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .nav-btn:hover {
+
+            border-color: #5b5ce2;
+
+            color: #5b5ce2;
+
+        }
+
+
+        .nav-btn.primary {
+
+            background: #5b5ce2;
+
+            border-color: #5b5ce2;
+
+            color: #ffffff;
+
+        }
+
+
+        .nav-btn.primary:hover {
+
+            background: #4849c9;
+
+            border-color: #4849c9;
+
+        }
+
+
+        /* =====================================================
+           MAIN
+           ===================================================== */
+
+        .page {
+
+            width: min(1120px, 90%);
+
+            margin: 0 auto;
+
+            padding: 58px 0 80px;
+
+        }
+
+
+        /* =====================================================
+           BACK
+           ===================================================== */
+
+        .back-link {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #5b5ce2;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .exam-hero {
+
+            background: #ffffff;
+
+            border: 1px solid #e2e5ef;
+
+            border-radius: 18px;
+
+            padding: 42px;
+
+            margin-bottom: 28px;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .exam-hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 240px;
+
+            height: 240px;
+
+            border-radius: 50%;
+
+            background: #f0f0ff;
+
+            right: -90px;
+
+            top: -110px;
+
+            z-index: 0;
+
+        }
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 1;
+
+            max-width: 800px;
+
+        }
+
+
+        .exam-label {
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            color: #5b5ce2;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .exam-title {
+
+            font-size: clamp(34px, 5vw, 52px);
+
+            line-height: 1.08;
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 16px;
+
+            color: #14213d;
+
+        }
+
+
+        .exam-subtitle {
+
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            color: #667085;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .exam-description {
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            color: #667085;
+
+            margin-bottom: 28px;
+
+            max-width: 780px;
+
+        }
+
+
+        /* =====================================================
+           ACTION BUTTONS
+           ===================================================== */
+
+        .hero-actions {
+
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .primary-action {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #5b5ce2;
+
+            color: #ffffff;
+
+            padding: 13px 22px;
+
+            border-radius: 9px;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .primary-action:hover {
+
+            background: #4849c9;
+
+            transform: translateY(-1px);
+
+        }
+
+
+        .secondary-action {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #ffffff;
+
+            color: #34415d;
+
+            border: 1px solid #dfe2ec;
+
+            padding: 13px 22px;
+
+            border-radius: 9px;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .secondary-action:hover {
+
+            border-color: #5b5ce2;
+
+            color: #5b5ce2;
+
+        }
+
+
+        /* =====================================================
+           LOGIN NOTICE
+           ===================================================== */
+
+        .login-note {
+
+            margin-top: 16px;
+
+            font-size: 13px;
+
+            color: #7a8499;
+
+        }
+
+
+        .login-note a {
+
+            color: #5b5ce2;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =====================================================
+           QUICK INFO
+           ===================================================== */
+
+        .quick-info {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 16px;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .info-card {
+
+            background: #ffffff;
+
+            border: 1px solid #e2e5ef;
+
+            border-radius: 14px;
+
+            padding: 22px;
+
+        }
+
+
+        .info-icon {
+
+            font-size: 23px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .info-card strong {
+
+            display: block;
+
+            font-size: 17px;
+
+            margin-bottom: 5px;
+
+            color: #14213d;
+
+        }
+
+
+        .info-card span {
+
+            color: #7a8499;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =====================================================
+           TWO COLUMN SECTION
+           ===================================================== */
+
+        .content-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.4fr)
+                minmax(300px, 0.8fr);
+
+            gap: 24px;
+
+        }
+
+
+        .content-card {
+
+            background: #ffffff;
+
+            border: 1px solid #e2e5ef;
+
+            border-radius: 16px;
+
+            padding: 30px;
+
+        }
+
+
+        .section-label {
+
+            color: #5b5ce2;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.4px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .content-card h2 {
+
+            font-size: 24px;
+
+            margin-bottom: 14px;
+
+            color: #14213d;
+
+        }
+
+
+        .content-card > p {
+
+            color: #667085;
+
+            line-height: 1.7;
+
+            font-size: 15px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        /* =====================================================
+           SUBJECTS
+           ===================================================== */
+
+        .subject-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 11px;
+
+        }
+
+
+        .subject-item {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 15px 16px;
+
+            border: 1px solid #e5e7ef;
+
+            border-radius: 10px;
+
+            background: #fafbfe;
+
+        }
+
+
+        .subject-name {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            font-weight: 650;
+
+            color: #263451;
+
+        }
+
+
+        .subject-dot {
+
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #5b5ce2;
+
+        }
+
+
+        .subject-status {
+
+            font-size: 12px;
+
+            color: #7a8499;
+
+        }
+
+
+        /* =====================================================
+           FEATURES
+           ===================================================== */
+
+        .feature-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 17px;
+
+        }
+
+
+        .feature {
+
+            display: flex;
+
+            gap: 13px;
+
+            align-items: flex-start;
+
+        }
+
+
+        .feature-icon {
+
+            width: 38px;
+
+            height: 38px;
+
+            border-radius: 9px;
+
+            background: #f0f0ff;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            font-size: 17px;
+
+        }
+
+
+        .feature h3 {
+
+            font-size: 15px;
+
+            color: #263451;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .feature p {
+
+            font-size: 13px;
+
+            line-height: 1.55;
+
+            color: #7a8499;
+
+        }
+
+
+        /* =====================================================
+           ADAPTIVE SECTION
+           ===================================================== */
+
+        .adaptive-card {
+
+            margin-top: 24px;
+
+            background: #171f3a;
+
+            color: #ffffff;
+
+            border-radius: 16px;
+
+            padding: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+        }
+
+
+        .adaptive-content {
+
+            max-width: 700px;
+
+        }
+
+
+        .adaptive-label {
+
+            font-size: 11px;
+
+            letter-spacing: 1.4px;
+
+            font-weight: 800;
+
+            color: #b8b9ff;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .adaptive-card h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .adaptive-card p {
+
+            color: #c8ccda;
+
+            line-height: 1.65;
+
+            font-size: 14px;
+
+        }
+
+
+        .adaptive-badge {
+
+            min-width: 86px;
+
+            height: 86px;
+
+            border-radius: 16px;
+
+            background: #2c3560;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 34px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        /* =====================================================
+           FINAL CTA
+           ===================================================== */
+
+        .final-cta {
+
+            text-align: center;
+
+            padding: 48px 20px 10px;
+
+        }
+
+
+        .final-cta h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+
+            color: #14213d;
+
+        }
+
+
+        .final-cta p {
+
+            color: #667085;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        /* =====================================================
+           LOADING / ERROR
+           ===================================================== */
+
+        .loading {
+
+            text-align: center;
+
+            padding: 100px 20px;
+
+            color: #667085;
+
+        }
+
+
+        .error {
+
+            background: #ffffff;
+
+            border: 1px solid #e2e5ef;
+
+            border-radius: 16px;
+
+            padding: 40px;
+
+            text-align: center;
+
+        }
+
+
+        .error h2 {
+
+            margin-bottom: 10px;
+
+            color: #14213d;
+
+        }
+
+
+        .error p {
+
+            color: #667085;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .quick-info {
+                grid-template-columns: 1fr;
+            }
+
+
+            .adaptive-card {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .navbar {
+
+                height: auto;
+
+                padding-top: 17px;
+
+                padding-bottom: 17px;
+
+                gap: 15px;
+
+                flex-wrap: wrap;
+
+            }
+
+
+            .nav-actions {
+
+                width: 100%;
+
+            }
+
+
+            .nav-btn {
+
+                flex: 1;
+
+                text-align: center;
+
+            }
+
+
+            .page {
+
+                width: 92%;
+
+                padding-top: 35px;
+
+            }
+
+
+            .exam-hero {
+
+                padding: 28px 22px;
+
+            }
+
+
+            .content-card {
+
+                padding: 23px;
+
+            }
+
+
+            .exam-title {
+
+                font-size: 36px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <header class="navbar">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            Adaptive<span>Learn</span>
+        </a>
+
+
+        <div class="nav-actions">
+
+            <a
+                href="index.html#exams"
+                class="nav-btn"
+            >
+                All Exams
+            </a>
+
+
+            
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="page">
+
+
+        <a
+            href="index.html#exams"
+            class="back-link"
+        >
+            ← Back to Exams
+        </a>
+
+
+        <div id="examContent">
+
+            <div class="loading">
+                Loading exam details...
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+
+    <script>
+
+        /* =====================================================
+           EXAM DATA
+           ===================================================== */
+
+        const examData = {
+
+            esic: {
+
+                id: 1,
+
+                name: "ESIC UDC",
+
+                fullName:
+                    "Employees' State Insurance Corporation Upper Division Clerk",
+
+                description:
+                    "Prepare for ESIC UDC with structured subject-wise practice, performance tracking and adaptive learning.",
+
+                subjects: [
+                    "Reasoning Ability",
+                    "Quantitative Aptitude",
+                    "English Language"
+                ]
+
+            },
+
+
+            oicl: {
+
+                id: 2,
+
+                name: "OICL Assistant",
+
+                fullName:
+                    "Oriental Insurance Company Limited Assistant",
+
+                description:
+                    "Build your OICL Assistant preparation through focused subject practice, topic-based quizzes and adaptive question selection.",
+
+                subjects: [
+                    "Reasoning Ability",
+                    "Quantitative Aptitude",
+                    "English Language"
+                ]
+
+            },
+
+
+            niacl: {
+
+                id: 3,
+
+                name: "NIACL Assistant",
+
+                fullName:
+                    "New India Assurance Company Limited Assistant",
+
+                description:
+                    "Prepare for NIACL Assistant with structured practice, performance tracking and adaptive learning.",
+
+                subjects: [
+                    "Reasoning Ability",
+                    "Quantitative Aptitude",
+                    "English Language"
+                ]
+
+            }
+
+        };
+
+
+
+        /* =====================================================
+           URL PARAMETERS
+           ===================================================== */
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const examSlug =
+            (
+                params.get("exam") ||
+                "esic"
+            ).toLowerCase();
+
+
+        const requestedExamId =
+            Number(
+                params.get("examId")
+            );
+
+
+
+        /* =====================================================
+           FIND EXAM
+           ===================================================== */
+
+        let exam =
+            examData[examSlug];
+
+
+        if (!exam && requestedExamId) {
+
+            exam =
+                Object.values(examData).find(
+                    function(item) {
+
+                        return item.id ===
+                            requestedExamId;
+
+                    }
+                );
+
+        }
+
+
+
+        /* =====================================================
+           ERROR
+           ===================================================== */
+
+        function renderError() {
+
+            document.getElementById(
+                "examContent"
+            ).innerHTML = `
+
+                <div class="error">
+
+                    <h2>
+                        Exam Not Found
+                    </h2>
+
+                    <p>
+                        We could not find the selected
+                        exam. Please return to the exam
+                        list and choose an exam again.
+                    </p>
+
+                    <a
+                        href="index.html#exams"
+                        class="primary-action"
+                    >
+                        Back to Exams
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+
+        /* =====================================================
+           RENDER EXAM
+           ===================================================== */
+
+        function renderExam(exam) {
+
+
+            const subjectHTML =
+                exam.subjects.map(
+                    function(subject) {
+
+                        return `
+
+                            <div class="subject-item">
+
+                                <div class="subject-name">
+
+                                    <span
+                                        class="subject-dot"
+                                    ></span>
+
+                                    <span>
+                                        ${subject}
+                                    </span>
+
+                                </div>
+
+                                <span
+                                    class="subject-status"
+                                >
+                                    Practice
+                                </span>
+
+                            </div>
+
+                        `;
+
+                    }
+                ).join("");
+
+
+            /*
+             * IMPORTANT:
+             *
+             * Start Preparation now sends
+             * the student to LOGIN first.
+             *
+             * After login, the existing login flow
+             * takes the student into the application.
+             */
+
+            const loginUrl =
+                "login.html" +
+                "?exam=" +
+                encodeURIComponent(examSlug) +
+                "&examId=" +
+                encodeURIComponent(exam.id);
+
+
+
+            document.title =
+                exam.name +
+                " - AdaptiveLearn";
+
+
+
+            document.getElementById(
+                "examContent"
+            ).innerHTML = `
+
+
+                <!-- =========================================
+                     EXAM HERO
+                     ========================================= -->
+
+                <section class="exam-hero">
+
+                    <div class="hero-content">
+
+
+                        <div class="exam-label">
+                            COMPETITIVE EXAM
+                        </div>
+
+
+                        <h1 class="exam-title">
+                            ${exam.name}
+                        </h1>
+
+
+                        <p class="exam-subtitle">
+                            ${exam.fullName}
+                        </p>
+
+
+                        <p class="exam-description">
+                            ${exam.description}
+                        </p>
+
+
+                        <div class="hero-actions">
+
+
+                            <!--
+                                LOGIN FIRST
+                            -->
+
+                            <a
+                                href="${loginUrl}"
+                                class="primary-action"
+                            >
+                                Start Preparation →
+                            </a>
+
+
+                            <a
+                                href="index.html#exams"
+                                class="secondary-action"
+                            >
+                                Choose Another Exam
+                            </a>
+
+                        </div>
+
+
+                        <p class="login-note">
+
+                            Already have an account?
+                            <a href="${loginUrl}">
+                                Login
+                            </a>
+
+                            &nbsp;·&nbsp;
+
+                            New to AdaptiveLearn?
+                            <a href="register.html">
+                                Create an account
+                            </a>
+
+                        </p>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================================
+                     QUICK INFORMATION
+                     ========================================= -->
+
+                <section class="quick-info">
+
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            📚
+                        </div>
+
+                        <strong>
+                            3 Core Subjects
+                        </strong>
+
+                        <span>
+                            Subject and topic based preparation
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            🧠
+                        </div>
+
+                        <strong>
+                            Adaptive Practice
+                        </strong>
+
+                        <span>
+                            Questions based on your performance
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            📊
+                        </div>
+
+                        <strong>
+                            Performance Tracking
+                        </strong>
+
+                        <span>
+                            Monitor topic-wise progress
+                        </span>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =========================================
+                     CONTENT
+                     ========================================= -->
+
+                <section class="content-grid">
+
+
+                    <!-- SUBJECTS -->
+
+                    <div class="content-card">
+
+
+                        <div class="section-label">
+                            EXAM PREPARATION
+                        </div>
+
+
+                        <h2>
+                            Subjects
+                        </h2>
+
+
+                        <p>
+                            After signing in, choose a subject
+                            and continue into topic-based
+                            preparation and quizzes.
+                        </p>
+
+
+                        <div class="subject-list">
+
+                            ${subjectHTML}
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- FEATURES -->
+
+                    <div class="content-card">
+
+
+                        <div class="section-label">
+                            WHAT YOU GET
+                        </div>
+
+
+                        <h2>
+                            Preparation Features
+                        </h2>
+
+
+                        <div class="feature-list">
+
+
+                            <div class="feature">
+
+                                <div class="feature-icon">
+                                    🧠
+                                </div>
+
+                                <div>
+
+                                    <h3>
+                                        Adaptive Learning
+                                    </h3>
+
+                                    <p>
+                                        Practice adjusts according
+                                        to previous performance.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="feature">
+
+                                <div class="feature-icon">
+                                    🎯
+                                </div>
+
+                                <div>
+
+                                    <h3>
+                                        Topic Practice
+                                    </h3>
+
+                                    <p>
+                                        Move from subjects into
+                                        individual topics.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="feature">
+
+                                <div class="feature-icon">
+                                    📈
+                                </div>
+
+                                <div>
+
+                                    <h3>
+                                        Progress Analysis
+                                    </h3>
+
+                                    <p>
+                                        Track your topic-wise
+                                        learning performance.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="feature">
+
+                                <div class="feature-icon">
+                                    ⚡
+                                </div>
+
+                                <div>
+
+                                    <h3>
+                                        Personalized Practice
+                                    </h3>
+
+                                    <p>
+                                        Focus practice on areas
+                                        that need improvement.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =========================================
+                     ADAPTIVE LEARNING
+                     ========================================= -->
+
+                <section class="adaptive-card">
+
+
+                    <div class="adaptive-content">
+
+
+                        <div class="adaptive-label">
+                            ADAPTIVELEARN ENGINE
+                        </div>
+
+
+                        <h2>
+                            Your preparation changes with you.
+                        </h2>
+
+
+                        <p>
+                            As you complete quizzes, your
+                            topic-wise performance is recorded.
+                            AdaptiveLearn uses that information
+                            to identify areas that need
+                            improvement and personalize your
+                            practice.
+                        </p>
+
+
+                    </div>
+
+
+                    <div class="adaptive-badge">
+                        ⚡
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =========================================
+                     FINAL CTA
+                     ========================================= -->
+
+                <section class="final-cta">
+
+
+                    <div class="section-label">
+                        READY TO BEGIN?
+                    </div>
+
+
+                    <h2>
+                        Start your ${exam.name} preparation
+                    </h2>
+
+
+                    <p>
+                        Login or create an account to begin.
+                    </p>
+
+
+                    <a
+                        href="${loginUrl}"
+                        class="primary-action"
+                    >
+                        Login & Start Preparation →
+                    </a>
+
+
+                </section>
+
+            `;
+
+        }
+
+
+
+        /* =====================================================
+           START
+           ===================================================== */
+
+        if (exam) {
+
+            renderExam(exam);
+
+        } else {
+
+            renderError();
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

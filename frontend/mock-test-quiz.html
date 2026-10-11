@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mock Test - AdaptiveLearn</title>
+
+    <link
+        rel="stylesheet"
+        href="css/mock-test-quiz.css"
+    >
+    <link rel="stylesheet" href="css/app-theme.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header class="test-header">
+
+        <div class="logo">
+            AdaptiveLearn
+        </div>
+
+        <div class="exam-title">
+            <span id="examName">
+                Mock Test
+            </span>
+        </div>
+
+        <div class="timer-box">
+
+            <span class="timer-icon">
+                ⏱
+            </span>
+
+            <span id="timer">
+                20:00
+            </span>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- MAIN TEST AREA -->
+
+    <main class="test-container">
+
+
+        <!-- TOP INFORMATION -->
+
+        <section class="test-top">
+
+            <div>
+
+                <p class="test-label">
+                    FULL MOCK TEST
+                </p>
+
+                <h1>
+                    <span id="examHeading">
+                        Mock Test
+                    </span>
+                </h1>
+
+            </div>
+
+
+            <div class="progress-info">
+
+                <span>
+                    Question
+                </span>
+
+                <strong>
+                    <span id="currentQuestionNumber">
+                        1
+                    </span>
+                    /
+                    <span id="totalQuestions">
+                        20
+                    </span>
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PROGRESS BAR -->
+
+        <div class="progress-container">
+
+            <div
+                id="progressBar"
+                class="progress-bar"
+            ></div>
+
+        </div>
+
+
+
+        <!-- TEST CONTENT -->
+
+        <div class="test-layout">
+
+
+            <!-- QUESTION AREA -->
+
+            <section class="question-card">
+
+
+                <!-- SUBJECT -->
+
+                <div class="question-meta">
+
+                    <span id="subjectLabel">
+                        Quantitative Aptitude
+                    </span>
+
+                    <span id="topicLabel">
+                        Percentage
+                    </span>
+
+                </div>
+
+
+                <!-- QUESTION -->
+
+                <div class="question-number">
+
+                    Question
+                    <span id="questionCount">
+                        1
+                    </span>
+
+                </div>
+
+
+                <h2 id="questionText">
+                    Loading question...
+                </h2>
+
+
+                <!-- OPTIONS -->
+
+                <div
+                    id="optionsContainer"
+                    class="options-container"
+                ></div>
+
+
+                <!-- MESSAGE -->
+
+                <p
+                    id="quizMessage"
+                    class="quiz-message"
+                ></p>
+
+
+                <!-- NAVIGATION -->
+
+                <div class="navigation-buttons">
+
+                    <button
+                        id="previousButton"
+                        class="previous-button"
+                    >
+                        ← Previous
+                    </button>
+
+
+                    <button
+                        id="nextButton"
+                        class="next-button"
+                    >
+                        Next →
+                    </button>
+
+
+                    <button
+                        id="submitButton"
+                        class="submit-button"
+                    >
+                        Submit Test
+                    </button>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- QUESTION PALETTE -->
+
+            <aside class="question-panel">
+
+
+                <h3>
+                    Questions
+                </h3>
+
+
+                <div
+                    id="questionPalette"
+                    class="question-palette"
+                ></div>
+
+
+                <div class="palette-legend">
+
+
+                    <div class="legend-item">
+
+                        <span class="legend-box answered"></span>
+
+                        <span>
+                            Answered
+                        </span>
+
+                    </div>
+
+
+                    <div class="legend-item">
+
+                        <span class="legend-box current"></span>
+
+                        <span>
+                            Current
+                        </span>
+
+                    </div>
+
+
+                    <div class="legend-item">
+
+                        <span class="legend-box unanswered"></span>
+
+                        <span>
+                            Unanswered
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="test-summary-box">
+
+                    <p>
+                        Answered
+                        <strong id="answeredCount">
+                            0
+                        </strong>
+                    </p>
+
+                    <p>
+                        Remaining
+                        <strong id="remainingCount">
+                            20
+                        </strong>
+                    </p>
+
+                </div>
+
+
+            </aside>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- SUBMIT CONFIRMATION -->
+
+    <div
+        id="submitModal"
+        class="modal-overlay"
+    >
+
+        <div class="modal-box">
+
+            <h2>
+                Submit Mock Test?
+            </h2>
+
+            <p id="submitMessage">
+                Are you sure you want to submit the test?
+            </p>
+
+
+            <div class="modal-buttons">
+
+                <button
+                    id="cancelSubmit"
+                    class="cancel-button"
+                >
+                    Continue Test
+                </button>
+
+                <button
+                    id="confirmSubmit"
+                    class="confirm-button"
+                >
+                    Submit Test
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="js/mock-test-quiz.js"></script>
+    <script src="js/profile-sync.js"></script>
+
+</body>
+
+</html>

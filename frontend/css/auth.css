@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background: #f7f8fc;
+    color: #172033;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.auth-container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.auth-info {
+    background: #5b5ce2;
+    color: white;
+    padding: 45px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.auth-logo {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.auth-logo span {
+    color: #dcdcff;
+}
+
+.info-content {
+    max-width: 500px;
+    margin-bottom: 100px;
+}
+
+.auth-label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+}
+
+.info-content h1 {
+    font-size: 52px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.info-content > p:last-child {
+    color: #e1e1ff;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.auth-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    background: white;
+}
+
+.auth-form {
+    width: 100%;
+    max-width: 430px;
+}
+
+.back-link {
+    display: inline-block;
+    color: #697082;
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 40px;
+}
+
+.back-link:hover {
+    color: #5b5ce2;
+}
+
+.auth-form h2 {
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    color: #73798a;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #dfe2ea;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    background: white;
+    color: #172033;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #5b5ce2;
+    box-shadow: 0 0 0 3px rgba(91, 92, 226, 0.1);
+}
+
+
+/* =========================
+   FORM OPTIONS
+========================= */
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 25px;
+    font-size: 12px;
+}
+
+.form-options a,
+.register-text a {
+    color: #5b5ce2;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.auth-button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #5b5ce2;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.auth-button:hover {
+    background: #4849c9;
+}
+
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+    color: #9ca1af;
+    font-size: 11px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    height: 1px;
+    background: #e5e7ed;
+    flex: 1;
+}
+
+
+/* =========================
+   REGISTER TEXT
+========================= */
+
+.register-text {
+    text-align: center;
+    font-size: 13px;
+    color: #747a89;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .auth-container {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-info {
+        min-height: 300px;
+        padding: 30px;
+    }
+
+    .info-content {
+        margin: 60px 0 20px;
+    }
+
+    .info-content h1 {
+        font-size: 38px;
+    }
+
+    .auth-form-container {
+        padding: 40px 25px;
+    }
+
+}

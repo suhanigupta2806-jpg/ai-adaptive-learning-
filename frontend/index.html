@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AdaptiveLearn - AI Exam Preparation</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         NAVIGATION BAR
+    ========================================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Adaptive<span>Learn</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#exams">Exams</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <div class="nav-buttons">
+
+            <a
+                href="login.html"
+                class="btn btn-outline"
+            >
+                Login
+            </a>
+
+            <a
+                href="register.html"
+                class="btn btn-primary"
+            >
+                Get Started
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         HERO SECTION
+    ========================================== -->
+
+    <section
+        id="home"
+        class="hero"
+    >
+
+        <div class="hero-content">
+
+            <p class="hero-label">
+                AI-POWERED EXAM PREPARATION
+            </p>
+
+            <h1>
+                Study Smarter.
+                <br>
+                <span>Prepare Better.</span>
+            </h1>
+
+            <p class="hero-description">
+                A personalized learning platform that understands
+                your strengths, identifies your weak areas, and
+                creates an adaptive preparation experience for you.
+            </p>
+
+            <div class="hero-buttons">
+
+                <!-- START LEARNING -->
+                <button
+                    class="btn btn-primary btn-large"
+                    id="startLearningButton"
+                    type="button"
+                >
+                    Start Learning
+                </button>
+
+                <!-- EXPLORE EXAMS -->
+                <button
+                    class="btn btn-secondary btn-large"
+                    id="exploreExamsButton"
+                    type="button"
+                >
+                    Explore Exams
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             DASHBOARD PREVIEW
+        ========================================== -->
+
+        <div class="dashboard-preview">
+
+            <div class="preview-header">
+
+                <span>
+                    Learning Dashboard
+                </span>
+
+                <span class="status-dot"></span>
+
+            </div>
+
+
+            <div class="progress-card">
+
+                <div>
+
+                    <p>
+                        Overall Progress
+                    </p>
+
+                    <h2>
+                        72%
+                    </h2>
+
+                </div>
+
+                <div class="progress-circle">
+                    72%
+                </div>
+
+            </div>
+
+
+            <div class="mini-cards">
+
+                <div class="mini-card">
+
+                    <span>
+                        🔥
+                    </span>
+
+                    <strong>
+                        12
+                    </strong>
+
+                    <small>
+                        Day Streak
+                    </small>
+
+                </div>
+
+
+                <div class="mini-card">
+
+                    <span>
+                        ⭐
+                    </span>
+
+                    <strong>
+                        2,450
+                    </strong>
+
+                    <small>
+                        XP Earned
+                    </small>
+
+                </div>
+
+
+                <div class="mini-card">
+
+                    <span>
+                        🎯
+                    </span>
+
+                    <strong>
+                        84%
+                    </strong>
+
+                    <small>
+                        Accuracy
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- CLICKABLE PRACTICE -->
+
+            <div
+                class="weak-topic"
+                id="practicePreview"
+                role="button"
+                tabindex="0"
+                title="Go to Practice"
+            >
+
+                <div>
+
+                    <p>
+                        Needs Improvement
+                    </p>
+
+                    <h3>
+                        Quantitative Aptitude
+                    </h3>
+
+                </div>
+
+                <span>
+                    Practice →
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FEATURES SECTION
+    ========================================== -->
+
+    <section
+        id="features"
+        class="section"
+    >
+
+        <div class="section-heading">
+
+            <p class="section-label">
+                WHY ADAPTIVELEARN?
+            </p>
+
+            <h2>
+                Learning that adapts to you
+            </h2>
+
+            <p>
+                Instead of giving every student the same learning
+                experience, the system continuously analyzes
+                performance and adapts the preparation journey.
+            </p>
+
+        </div>
+
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🧠
+                </div>
+
+                <h3>
+                    Adaptive Learning
+                </h3>
+
+                <p>
+                    Questions and practice activities adjust
+                    according to your current knowledge level.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Weak Topic Detection
+                </h3>
+
+                <p>
+                    Identify the topics where you need more
+                    practice instead of relying only on overall scores.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📅
+                </div>
+
+                <h3>
+                    Personalized Study Plan
+                </h3>
+
+                <p>
+                    Get a study plan designed around your
+                    performance, goals and available preparation time.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🎮
+                </div>
+
+                <h3>
+                    Gamified Learning
+                </h3>
+
+                <p>
+                    Earn XP, maintain streaks, unlock badges and
+                    complete daily skill challenges.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ⏱️
+                </div>
+
+                <h3>
+                    Daily Skill Challenge
+                </h3>
+
+                <p>
+                    Complete a short personalized challenge based
+                    on the areas you need to improve.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📈
+                </div>
+
+                <h3>
+                    Learning Timeline
+                </h3>
+
+                <p>
+                    Track your learning journey and see how your
+                    performance changes over time.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         EXAMS SECTION
+    ========================================== -->
+
+    <section
+        id="exams"
+        class="section exams-section"
+    >
+
+        <div class="section-heading">
+
+            <p class="section-label">
+                COMPETITIVE EXAMS
+            </p>
+
+            <h2>
+                Prepare for your target exam
+            </h2>
+
+            <p>
+                Choose your exam and start a preparation journey
+                personalized to your performance.
+            </p>
+
+        </div>
+
+
+        <div class="exam-grid">
+
+
+            <!-- =================================
+                 ESIC UDC
+            ================================== -->
+
+            <div class="exam-card">
+
+                <div class="exam-number">
+                    01
+                </div>
+
+                <h3>
+                    ESIC UDC
+                </h3>
+
+                <p>
+                    Employees' State Insurance Corporation
+                    Upper Division Clerk
+                </p>
+
+                <button
+                    type="button"
+                    class="view-exam-button"
+                    data-exam="esic"
+                >
+                    View Exam →
+                </button>
+
+            </div>
+
+
+            <!-- =================================
+                 OICL ASSISTANT
+            ================================== -->
+
+            <div class="exam-card">
+
+                <div class="exam-number">
+                    02
+                </div>
+
+                <h3>
+                    OICL Assistant
+                </h3>
+
+                <p>
+                    Oriental Insurance Company Limited
+                    Assistant
+                </p>
+
+                <button
+                    type="button"
+                    class="view-exam-button"
+                    data-exam="oicl"
+                >
+                    View Exam →
+                </button>
+
+            </div>
+
+
+            <!-- =================================
+                 NIACL ASSISTANT
+            ================================== -->
+
+            <div class="exam-card">
+
+                <div class="exam-number">
+                    03
+                </div>
+
+                <h3>
+                    NIACL Assistant
+                </h3>
+
+                <p>
+                    New India Assurance Company Limited
+                    Assistant
+                </p>
+
+                <button
+                    type="button"
+                    class="view-exam-button"
+                    data-exam="niacl"
+                >
+                    View Exam →
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         ABOUT SECTION
+    ========================================== -->
+
+    <section
+        id="about"
+        class="about-section"
+    >
+
+        <div>
+
+            <p class="section-label">
+                OUR APPROACH
+            </p>
+
+            <h2>
+                Your preparation should not be one-size-fits-all.
+            </h2>
+
+        </div>
+
+        <p>
+            AdaptiveLearn analyzes your performance across questions
+            and topics to understand where you are strong and where
+            improvement is required. The system then uses this
+            information to personalize your preparation journey.
+        </p>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="logo">
+            Adaptive<span>Learn</span>
+        </div>
+
+        <p>
+            AI-powered adaptive exam preparation.
+        </p>
+
+        <p class="copyright">
+            © 2026 AdaptiveLearn. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- MAIN JAVASCRIPT -->
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
